@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lisa Johnson | Self-Improvement & Wellness Coach</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            signature: ['"Alex Brush"', 'cursive'],
+            quote: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            brand: {
+              emerald: '#1C3F3A',
+              'emerald-hover': '#14302C',
+              'emerald-light': '#EBF2EE',
+              // Map orange utilities to deep forest emerald for primary buttons and active indicators
+              orange: '#1C3F3A',
+              'orange-hover': '#14302C',
+              'orange-light': '#EBF2EE',
+              gold: '#C59B27',
+              'gold-hover': '#B0881F',
+              'gold-light': '#FAF4E5',
+              'bg-sand': '#F2F4EE',
+              'bg-sand-dark': '#E5E8DD',
+              'bg-light': '#FBFBFA',
+              text: '#121E1C',
+              muted: '#62706D',
+            },
+            amber: {
+              400: '#C59B27',
+            }
+          },
+          boxShadow: {
+            'card-float': '0 20px 45px -10px rgba(0, 0, 0, 0.08), 0 0 1px 1px rgba(0, 0, 0, 0.02)',
+            'stats': '0 15px 35px -8px rgba(0, 0, 0, 0.07)',
+            'soft': '0 10px 30px -5px rgba(0, 0, 0, 0.05)',
+            'hover': '0 20px 40px -10px rgba(28, 63, 58, 0.22)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Section 3 Offerings Offset Backdrop */
+    .card-offset-backdrop {
+      position: relative;
+    }
+    .card-offset-backdrop::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      left: 12px;
+      bottom: 12px;
+      background-color: #E6EAE4;
+      z-index: 0;
+    }
+
+    /* Section 2 Left Photo Offset Backdrop */
+    .session-offset-backdrop {
+      position: relative;
+    }
+    .session-offset-backdrop::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      right: 16px;
+      bottom: 16px;
+      background-color: #FFFFFF;
+      z-index: 0;
+    }
+
+    /* Section 4 Table Photo Offset Backdrop */
+    .table-offset-backdrop {
+      position: relative;
+    }
+    .table-offset-backdrop::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      left: 16px;
+      bottom: 16px;
+      background-color: #FFFFFF;
+      z-index: 0;
+    }
+
+    /* General Offset Backdrop Warm */
+    .warm-offset-backdrop {
+      position: relative;
+    }
+    .warm-offset-backdrop::before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: -14px;
+      right: 14px;
+      bottom: 14px;
+      background-color: #E6EAE4;
+      z-index: 0;
+    }
+
+    /* Selection Color */
+    ::selection {
+      background-color: #1C3F3A;
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body class="bg-brand-bg-light text-brand-text font-sans antialiased overflow-x-hidden">
+
+  <!-- ========================================================
+       TOP NAVIGATION BAR (CENTERED TWO-TIER EDITORIAL STYLE)
+       ======================================================== -->
+  <header class="w-full bg-brand-bg-light sticky top-0 z-50 border-b border-stone-200/60 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)]">
+    
+    <!-- Top Row: Centered Brand Signature Logo with Generous Top Padding -->
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 pt-7 sm:pt-9 pb-3.5 sm:pb-4 flex items-center justify-between relative">
+      
+      <!-- Left Space: Social links for visual balance -->
+      <div class="hidden sm:flex items-center gap-4 text-stone-500 w-44">
+        <a href="#" class="hover:text-brand-orange transition-colors" title="Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+        <a href="#" class="hover:text-brand-orange transition-colors" title="Twitter"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+        <a href="#" class="hover:text-brand-orange transition-colors" title="Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+      </div>
+
+      <!-- Center Logo: Lisa Johnson (Bigger & Prominent) -->
+      <div class="flex-1 text-center">
+        <a href="#" class="font-signature text-5xl sm:text-6xl lg:text-[62px] text-stone-900 hover:text-brand-orange transition-colors inline-block leading-tight select-none">
+          Lisa Johnson
+        </a>
+      </div>
+
+      <!-- Right Action & Mobile Toggle -->
+      <div class="flex items-center justify-end gap-3.5 sm:w-44">
+        <a href="#booking" class="hidden sm:inline-block lg:hidden px-4 py-2 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded-[3px] shadow-sm transition-all">
+          Book Call
+        </a>
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-stone-700 hover:text-brand-orange">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Bottom Row: Increased Size Navigation Menu Follows Centered on the Next Line -->
+    <div class="border-t border-stone-200/50 hidden lg:block">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 py-3.5 flex items-center justify-center">
+        <nav id="desktop-nav" class="flex items-center justify-center gap-8 text-[15px] sm:text-[16px] font-semibold tracking-normal text-stone-700">
+          <a href="#hero" class="nav-link text-brand-orange font-bold hover:text-brand-orange transition-colors">Home</a>
+          <a href="#about" class="nav-link text-stone-700 hover:text-brand-orange transition-colors">About Me</a>
+          <a href="#philosophy" class="nav-link text-stone-700 hover:text-brand-orange transition-colors">Philosophy</a>
+          <a href="#how-it-works" class="nav-link text-stone-700 hover:text-brand-orange transition-colors">How It Works</a>
+          <a href="#offerings" class="nav-link text-stone-700 hover:text-brand-orange transition-colors">Offerings</a>
+          <a href="#pricing" class="nav-link text-stone-700 hover:text-brand-orange transition-colors">Programs</a>
+          <a href="#testimonials" class="nav-link text-stone-700 hover:text-brand-orange transition-colors">Stories</a>
+          <a href="#faq" class="nav-link text-stone-700 hover:text-brand-orange transition-colors">FAQ</a>
+          <a href="#booking" class="ml-3 px-5 py-2 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded-[3px] shadow-sm transition-all">
+            Book Free Call
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden bg-white border-b border-stone-200 px-6 py-5 shadow-lg">
+      <div id="mobile-nav" class="flex flex-col gap-3 font-semibold text-stone-700 text-sm">
+        <a href="#hero" onclick="toggleMobileMenu()" class="mobile-nav-link text-brand-orange font-bold">Home</a>
+        <a href="#about" onclick="toggleMobileMenu()" class="mobile-nav-link text-stone-700 hover:text-brand-orange">About Me</a>
+        <a href="#philosophy" onclick="toggleMobileMenu()" class="mobile-nav-link text-stone-700 hover:text-brand-orange">Philosophy & Pillars</a>
+        <a href="#how-it-works" onclick="toggleMobileMenu()" class="mobile-nav-link text-stone-700 hover:text-brand-orange">How It Works</a>
+        <a href="#offerings" onclick="toggleMobileMenu()" class="mobile-nav-link text-stone-700 hover:text-brand-orange">Offerings</a>
+        <a href="#pricing" onclick="toggleMobileMenu()" class="mobile-nav-link text-stone-700 hover:text-brand-orange">Programs & Pricing</a>
+        <a href="#testimonials" onclick="toggleMobileMenu()" class="mobile-nav-link text-stone-700 hover:text-brand-orange">Client Stories</a>
+        <a href="#faq" onclick="toggleMobileMenu()" class="mobile-nav-link text-stone-700 hover:text-brand-orange">FAQ</a>
+        <a href="#booking" onclick="toggleMobileMenu()" class="mt-2 py-2.5 bg-brand-orange text-white text-center rounded font-bold">Book Free Call</a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ========================================================
+       SECTION 1: HERO SECTION (ORIGINAL MOCKUP REPLICA)
+       ======================================================== -->
+  <section id="hero" class="relative pt-10 pb-36 lg:pb-44 bg-brand-bg-light overflow-visible">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 z-10 pt-2 lg:pt-6">
+          <div class="text-[13px] font-bold text-stone-900 tracking-normal mb-4">
+            Self-Improvement & Wellness
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-stone-950 tracking-tight leading-[1.12] mb-6">
+            Make A Positive<br>
+            Change In Your<br>
+            Life Today
+          </h1>
+
+          <!-- Description paragraph -->
+          <p class="text-stone-500 text-[13px] sm:text-[14px] leading-relaxed max-w-md mb-8">
+            Break free from chronic overwhelm and second-guessing. Bespoke 1-on-1 mentorship designed to help ambitious leaders, founders, and professionals cultivate unshakeable mental clarity, emotional resilience, and intentional success.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex items-center gap-6">
+            <a href="#offerings" class="px-9 py-4 bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold tracking-wide rounded-[4px] shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+              Coaching
+            </a>
+            <a href="#booking" class="text-sm font-semibold text-stone-800 hover:text-brand-orange transition-colors">
+              Free Consultation
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual with Background Art Elements -->
+        <div class="lg:col-span-5 relative mt-8 lg:mt-0 flex justify-center lg:justify-end">
+          
+          <!-- Decorative Circular Wall Art (from mockup behind coach's left) -->
+          <div class="absolute -left-12 sm:-left-16 top-6 w-36 h-36 rounded-full bg-[#E6EAE4] shadow-inner border border-stone-200/60 flex items-center justify-center opacity-80 pointer-events-none z-0">
+            <div class="w-24 h-24 rounded-full bg-[#EFF2ED] shadow-sm"></div>
+          </div>
+
+          <!-- Coach Portrait Image & Attached Overlapping Floating Card -->
+          <div class="relative z-10 w-full max-w-[360px] sm:max-w-[400px]">
+            <div class="relative overflow-hidden">
+              <img 
+                src="assets/images/hero-coach.jpg" 
+                alt="Lisa Johnson" 
+                class="w-full h-auto object-cover object-top max-h-[500px] rounded-sm"
+              />
+            </div>
+
+            <!-- Overlapping Floating Card: Deep offset at bottom-right of hero image -->
+            <div class="absolute -bottom-14 -right-8 sm:-bottom-16 sm:-right-16 lg:-bottom-20 lg:-right-20 z-30 w-[290px] sm:w-[330px]">
+              <div class="bg-white p-5 sm:p-6 shadow-2xl border border-stone-200/60 rounded-sm">
+                <h3 class="text-sm sm:text-base font-bold text-stone-950 mb-1">
+                  Ready For Your Breakthrough?
+                </h3>
+                <p class="text-[11px] text-stone-500 leading-relaxed mb-3.5">
+                  Speak directly with Lisa to audit your current challenges and explore if private mentorship is your next right step.
+                </p>
+
+                <!-- Dial Action -->
+                <div class="flex items-center gap-3 pt-1">
+                  <a href="tel:+12126581920" class="w-9 h-9 bg-brand-orange hover:bg-brand-orange-hover text-white rounded-[3px] flex items-center justify-center transition-colors shadow-sm flex-shrink-0" title="Call Direct Line">
+                    <i data-lucide="phone" class="w-4 h-4 fill-white"></i>
+                  </a>
+                  <div>
+                    <span class="block text-[9px] font-bold text-stone-400 uppercase tracking-wider">
+                      Direct Advisory Line
+                    </span>
+                    <a href="tel:+12126581920" class="text-xs sm:text-sm font-extrabold text-stone-900 hover:text-brand-orange transition-colors">
+                      +1 (212) 658-1920
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dried Floral / Pampas Accent (foreground bottom left of hero image) -->
+          <div class="absolute -bottom-6 -left-6 lg:-left-10 w-28 sm:w-36 pointer-events-none z-20 opacity-85">
+            <svg viewBox="0 0 160 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+              <path d="M80 220C80 180 85 130 95 80C98 60 105 40 115 15" stroke="#C4B5A5" stroke-width="2" stroke-linecap="round"/>
+              <path d="M70 220C70 170 65 120 50 70C45 55 35 40 25 25" stroke="#C4B5A5" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M90 140C100 125 115 115 130 110" stroke="#B8A897" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M95 100C110 85 128 78 142 75" stroke="#B8A897" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M60 130C48 118 35 110 20 108" stroke="#B8A897" stroke-width="1.5" stroke-linecap="round"/>
+              <ellipse cx="118" cy="22" rx="14" ry="24" transform="rotate(18 118 22)" fill="#DCD3C7" fill-opacity="0.8"/>
+              <ellipse cx="140" cy="76" rx="10" ry="18" transform="rotate(28 140 76)" fill="#DCD3C7" fill-opacity="0.8"/>
+              <ellipse cx="24" cy="30" rx="12" ry="22" transform="rotate(-18 24 30)" fill="#DCD3C7" fill-opacity="0.8"/>
+            </svg>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       AS SEEN IN / ACCREDITATIONS BAR (CENTERED)
+       ======================================================== -->
+  <section class="py-9 bg-white border-y border-stone-200/50">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-12 text-center">
+        
+        <span class="text-[11px] font-bold uppercase tracking-wider text-stone-400 flex-shrink-0">
+          Featured In & Certified By
+        </span>
+
+        <div class="flex flex-wrap items-center justify-center gap-7 sm:gap-10 opacity-70 hover:opacity-100 transition-opacity">
+          <span class="font-bold text-lg sm:text-xl tracking-tighter text-stone-800 hover:text-brand-orange transition-colors">Forbes</span>
+          <span class="font-serif italic font-semibold text-lg sm:text-xl text-stone-800 hover:text-brand-orange transition-colors">Mindvalley</span>
+          <span class="font-extrabold text-lg sm:text-xl tracking-tight text-stone-800 hover:text-brand-orange transition-colors"><span class="text-brand-orange">TED</span>x</span>
+          <span class="font-bold text-base sm:text-lg tracking-wider uppercase text-stone-800 hover:text-brand-orange transition-colors">Entrepreneur</span>
+          <span class="font-serif text-lg sm:text-xl font-bold tracking-widest text-stone-800 hover:text-brand-orange transition-colors">VOGUE</span>
+          <div class="flex items-center gap-1.5 px-3 py-1 bg-brand-bg-sand rounded border border-stone-200/60 text-stone-800 text-[11px] font-bold">
+            <i data-lucide="award" class="w-3.5 h-3.5 text-brand-orange"></i>
+            <span>ICF Master Certified</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SECTION 2: PERSONAL SESSIONS (ORIGINAL MOCKUP REPLICA)
+       ======================================================== -->
+  <section id="about" class="pt-24 pb-20 lg:pt-28 lg:pb-28 bg-brand-bg-sand">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        
+        <!-- Left Column: Group Photo with Offset White Backdrop & Overlapping Stats Card -->
+        <div class="lg:col-span-6 relative pb-12 sm:pb-8">
+          
+          <div class="session-offset-backdrop">
+            <div class="relative z-10 overflow-hidden shadow-md">
+              <img 
+                src="assets/images/group-session.jpg" 
+                alt="Personal Sessions Coaching" 
+                class="w-full h-auto aspect-[16/11] object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Overlapping Bottom-Left Stats Card -->
+          <div class="absolute -bottom-4 sm:-bottom-6 left-2 sm:left-4 z-20 bg-white p-5 sm:p-6 shadow-stats border border-stone-100 max-w-sm">
+            <div class="grid grid-cols-3 gap-2 sm:gap-4 divide-x divide-stone-200">
+              <!-- 98% -->
+              <div class="pr-2 text-left">
+                <div class="text-2xl sm:text-[28px] font-extrabold text-stone-950 tracking-tight leading-none mb-1">
+                  98%
+                </div>
+                <div class="text-[10px] sm:text-[11px] text-stone-500 leading-tight">
+                  Client Goal<br>Completion
+                </div>
+              </div>
+
+              <!-- 750+ -->
+              <div class="px-2 sm:px-3 text-left">
+                <div class="text-2xl sm:text-[28px] font-extrabold text-stone-950 tracking-tight leading-none mb-1">
+                  750+
+                </div>
+                <div class="text-[10px] sm:text-[11px] text-stone-500 leading-tight">
+                  1-on-1 Deep<br>Dive Hours
+                </div>
+              </div>
+
+              <!-- 20+ -->
+              <div class="pl-2 sm:pl-3 text-left">
+                <div class="text-2xl sm:text-[28px] font-extrabold text-stone-950 tracking-tight leading-none mb-1">
+                  20+
+                </div>
+                <div class="text-[10px] sm:text-[11px] text-stone-500 leading-tight">
+                  Years Guiding<br>Top Leaders
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Text & CTA -->
+        <div class="lg:col-span-6 lg:pl-6">
+          <div class="text-[12px] font-bold text-stone-800 tracking-normal mb-3">
+            Personal Sessions
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-stone-950 tracking-tight leading-[1.18] mb-5">
+            Transform Your Life &<br>
+            Live Your Dream
+          </h2>
+
+          <p class="text-stone-600 text-[13px] sm:text-[14px] leading-relaxed mb-8 max-w-md">
+            Real transformation doesn't come from reading another self-help book. It happens in the confidential space between a seasoned mentor and your deepest truths. Together, we dismantle the subconscious barriers holding you back so you can lead and live with absolute presence.
+          </p>
+
+          <a href="#philosophy" class="inline-block px-7 py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded-[3px] shadow-sm transition-all">
+            Read More
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       NEW STRATEGIC SECTION: MEET LISA — STORY & 3 PILLARS
+       ======================================================== -->
+  <section id="philosophy" class="py-24 bg-white border-b border-stone-200/50">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Candid Photo of Lisa -->
+        <div class="lg:col-span-5 relative">
+          <div class="warm-offset-backdrop">
+            <div class="relative z-10 overflow-hidden shadow-md aspect-[3/4] bg-stone-100">
+              <img 
+                src="assets/images/founder-story.jpg" 
+                alt="Lisa Johnson in Studio" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Story & Pillars -->
+        <div class="lg:col-span-7">
+          <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
+            The Philosophy
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight leading-tight mb-5">
+            "High achievement without inner peace is the ultimate form of burnout."
+          </h2>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            For over a decade, I navigated the unrelenting pressures of executive corporate leadership. On paper, I had it all. Internally, I was running on adrenaline, self-doubt, and persistent exhaustion.
+          </p>
+          <p class="text-stone-600 text-sm leading-relaxed mb-8">
+            My breakthrough came when I realized sustainable success isn't about pushing harder; it’s about aligning your nervous system, clarifying your non-negotiables, and designing a life of intentional momentum. Here is the framework we use:
+          </p>
+
+          <!-- 3 Pillars Grid -->
+          <div class="space-y-4">
+            <div class="flex items-start gap-3.5 p-4 rounded bg-brand-bg-light border border-stone-200/70">
+              <div class="w-8 h-8 rounded bg-brand-orange text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
+                01
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-stone-950 mb-1">Nervous System & Mindset Regulation</h4>
+                <p class="text-xs text-stone-500 leading-relaxed">Transition from chronic fight-or-flight into grounded, calm decision-making clarity.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5 p-4 rounded bg-brand-bg-light border border-stone-200/70">
+              <div class="w-8 h-8 rounded bg-brand-orange text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
+                02
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-stone-950 mb-1">Radical Boundary & Calendar Architecture</h4>
+                <p class="text-xs text-stone-500 leading-relaxed">Reclaim 10-15 wasted hours per week by eliminating people-pleasing and low-yield obligations.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5 p-4 rounded bg-brand-bg-light border border-stone-200/70">
+              <div class="w-8 h-8 rounded bg-brand-orange text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
+                03
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-stone-950 mb-1">Aligned High-Impact Execution</h4>
+                <p class="text-xs text-stone-500 leading-relaxed">Pursue ambitious professional and life milestones without sacrificing health, joy, or presence.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       NEW STRATEGIC SECTION: WHO THIS IS FOR VS NOT FOR
+       ======================================================== -->
+  <section class="py-20 bg-brand-bg-sand">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
+          Self Selection
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight mb-3">
+          Is This Coaching Right For You?
+        </h2>
+        <p class="text-stone-500 text-xs sm:text-sm">
+          Coaching is a sacred, high-touch partnership. We only work with individuals ready for authentic transformation.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- This Is For You If -->
+        <div class="bg-white p-7 sm:p-9 rounded shadow-sm border border-stone-200/60">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+              <i data-lucide="check" class="w-4 h-4 stroke-[3]"></i>
+            </div>
+            <h3 class="text-lg font-bold text-stone-950">This Is For You If...</h3>
+          </div>
+          <ul class="space-y-4 text-xs sm:text-sm text-stone-600">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+              <span>You are an ambitious professional, founder, or creator who feels secretly overwhelmed or stuck on a treadmill.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+              <span>You crave deep, unwavering self-trust and clarity in both career moves and personal relationships.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+              <span>You are ready to take full ownership of your habits, boundaries, and internal dialogue.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+              <span>You value direct, empathetic, and confidential 1-on-1 mentorship with high accountability.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- This Is Not For You If -->
+        <div class="bg-white p-7 sm:p-9 rounded shadow-sm border border-stone-200/60">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-8 h-8 rounded bg-rose-100 text-rose-700 flex items-center justify-center font-bold">
+              <i data-lucide="x" class="w-4 h-4 stroke-[3]"></i>
+            </div>
+            <h3 class="text-lg font-bold text-stone-950">This Is NOT For You If...</h3>
+          </div>
+          <ul class="space-y-4 text-xs sm:text-sm text-stone-600">
+            <li class="flex items-start gap-3">
+              <i data-lucide="x-circle" class="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5"></i>
+              <span>You are looking for passive "magic pills" or overnight get-rich hacks without doing the inner work.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="x-circle" class="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5"></i>
+              <span>You want someone to make your decisions for you rather than empowering you to trust your own inner compass.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="x-circle" class="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5"></i>
+              <span>You are currently in acute crisis requiring clinical therapy or psychiatric treatment (we refer out for clinical care).</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="x-circle" class="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5"></i>
+              <span>You are unwilling to dedicate 2 hours per week to self-reflection and weekly actions.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       NEW STRATEGIC SECTION: 3-STEP "HOW IT WORKS" ROADMAP
+       ======================================================== -->
+  <section id="how-it-works" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
+          The Journey
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight mb-3">
+          Your 3-Step Transformation Path
+        </h2>
+        <p class="text-stone-500 text-xs sm:text-sm">
+          A predictable, structured framework designed to eliminate friction and yield lasting results.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        
+        <!-- Step 1 -->
+        <div class="bg-brand-bg-light p-7 sm:p-8 rounded border border-stone-200/70 relative flex flex-col">
+          <div class="text-4xl font-extrabold text-brand-orange/30 mb-4">01</div>
+          <h3 class="text-base font-bold text-stone-950 mb-2">Discovery & Life Audit</h3>
+          <p class="text-xs sm:text-sm text-stone-500 leading-relaxed flex-1">
+            We begin with a complimentary 20-minute alignment conversation to examine your current friction points, blind spots, and aspirations.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-brand-bg-light p-7 sm:p-8 rounded border border-stone-200/70 relative flex flex-col">
+          <div class="text-4xl font-extrabold text-brand-orange/30 mb-4">02</div>
+          <h3 class="text-base font-bold text-stone-950 mb-2">Custom 90-Day Blueprint</h3>
+          <p class="text-xs sm:text-sm text-stone-500 leading-relaxed flex-1">
+            We architect your personalized roadmap: non-negotiable boundaries, nervous system practices, and clear milestone checkpoints.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-brand-bg-light p-7 sm:p-8 rounded border border-stone-200/70 relative flex flex-col">
+          <div class="text-4xl font-extrabold text-brand-orange/30 mb-4">03</div>
+          <h3 class="text-base font-bold text-stone-950 mb-2">Bi-Weekly Deep Dives & Support</h3>
+          <p class="text-xs sm:text-sm text-stone-500 leading-relaxed flex-1">
+            75-minute 1-on-1 private sessions every two weeks, supplemented by unlimited Voxer/WhatsApp audio access between calls.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-12 sm:mt-14">
+        <a href="#booking" class="inline-block px-10 py-4 sm:px-12 sm:py-4.5 bg-brand-orange hover:bg-brand-orange-hover text-white text-sm sm:text-base font-bold tracking-wide rounded-[4px] shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+          Schedule Your Step 1 Call
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SECTION 3: OFFERINGS (ORIGINAL MOCKUP REPLICA)
+       ======================================================== -->
+  <section id="offerings" class="py-24 bg-brand-bg-sand border-y border-stone-200/50 relative">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      
+      <!-- Center Title -->
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <div class="text-[12px] font-bold text-stone-800 tracking-normal mb-2">
+          Tailored Offerings
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight mb-3">
+          Explore How We Can Work Together
+        </h2>
+        <p class="text-stone-500 text-[13px] sm:text-[14px] leading-relaxed">
+          Whether you are seeking high-touch private mentorship, immersive collaborative cohort retreats, or self-paced digital mastery, every pathway is calibrated for tangible personal breakthroughs.
+        </p>
+      </div>
+
+      <!-- 3 Column Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-9 lg:gap-8">
+        
+        <!-- Card 1: Coaching -->
+        <div class="flex flex-col items-start bg-white p-6 rounded shadow-sm border border-stone-200/50">
+          <div class="card-offset-backdrop w-full mb-6">
+            <div class="relative z-10 w-full overflow-hidden shadow-sm aspect-[4/3]">
+              <img 
+                src="assets/images/card-coaching.jpg" 
+                alt="Coaching" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-stone-950 mb-2">
+            1-on-1 Coaching
+          </h3>
+          <p class="text-[12px] text-stone-500 leading-relaxed mb-5">
+            Bespoke bi-weekly deep dives paired with private on-demand voice support to rewire subconscious patterns and accelerate career growth.
+          </p>
+          <a href="#pricing" class="px-7 py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-[13px] font-bold rounded-[4px] shadow-sm hover:shadow-md transition-all inline-block">
+            More Info
+          </a>
+        </div>
+
+        <!-- Card 2: Workshops -->
+        <div class="flex flex-col items-start bg-white p-6 rounded shadow-sm border border-stone-200/50">
+          <div class="card-offset-backdrop w-full mb-6">
+            <div class="relative z-10 w-full overflow-hidden shadow-sm aspect-[4/3]">
+              <img 
+                src="assets/images/card-workshops.jpg" 
+                alt="Workshops" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-stone-950 mb-2">
+            Cohort Workshops
+          </h3>
+          <p class="text-[12px] text-stone-500 leading-relaxed mb-5">
+            High-caliber interactive retreats and executive mastermind cohorts focused on nervous system mastery and clear boundary architecture.
+          </p>
+          <a href="#pricing" class="px-7 py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-[13px] font-bold rounded-[4px] shadow-sm hover:shadow-md transition-all inline-block">
+            More Info
+          </a>
+        </div>
+
+        <!-- Card 3: Video Courses -->
+        <div class="flex flex-col items-start bg-white p-6 rounded shadow-sm border border-stone-200/50">
+          <div class="card-offset-backdrop w-full mb-6">
+            <div class="relative z-10 w-full overflow-hidden shadow-sm aspect-[4/3]">
+              <img 
+                src="assets/images/card-video-courses.jpg" 
+                alt="Video Courses" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-stone-950 mb-2">
+            Video Courses & Audio
+          </h3>
+          <p class="text-[12px] text-stone-500 leading-relaxed mb-5">
+            Structured video masterclasses and guided morning breathwork practices you can absorb on your own schedule with lifetime access.
+          </p>
+          <a href="#pricing" class="px-7 py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-[13px] font-bold rounded-[4px] shadow-sm hover:shadow-md transition-all inline-block">
+            More Info
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       NEW STRATEGIC SECTION: DETAILED PRICING & PROGRAM TIERS
+       ======================================================== -->
+  <section id="pricing" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
+          Invest In Yourself
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight mb-3">
+          Transparent Programs & Packages
+        </h2>
+        <p class="text-stone-500 text-xs sm:text-sm">
+          Clear, structured tiers designed to support you at every stage of your growth journey.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Tier 1: Digital Vault -->
+        <div class="bg-brand-bg-light p-8 rounded border border-stone-200 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Self-Paced</div>
+            <h3 class="text-xl font-bold text-stone-950 mb-2">The Mindset Vault</h3>
+            <p class="text-xs text-stone-500 mb-6">Complete digital curriculum with guided audio meditations and life architecture workbooks.</p>
+            <div class="mb-6">
+              <span class="text-3xl font-extrabold text-stone-950">$497</span>
+              <span class="text-xs text-stone-500"> / one-time</span>
+            </div>
+            <ul class="space-y-3 text-xs text-stone-600 mb-8 border-t border-stone-200 pt-6">
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> 8 Core Video Modules (HD)</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> 20+ Guided Audio Mindset Practices</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> Interactive Digital Workbook</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> Lifetime Platform Access & Updates</li>
+            </ul>
+          </div>
+          <button onclick="openConsultationModal('The Mindset Vault')" class="w-full py-3 bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold rounded transition-colors">
+            Get Instant Access
+          </button>
+        </div>
+
+        <!-- Tier 2: 1-on-1 Mentorship (Featured) -->
+        <div class="bg-white p-8 rounded border-2 border-brand-orange shadow-hover relative flex flex-col justify-between">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-orange text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
+            Most Popular
+          </div>
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-brand-orange mb-2">12-Week Intensive</div>
+            <h3 class="text-xl font-bold text-stone-950 mb-2">1-on-1 Private Mentorship</h3>
+            <p class="text-xs text-stone-500 mb-6">Deep bespoke guidance, radical accountability, and tailored habit rewiring.</p>
+            <div class="mb-6">
+              <span class="text-3xl font-extrabold text-stone-950">$3,500</span>
+              <span class="text-xs text-stone-500"> / or 3x $1,250</span>
+            </div>
+            <ul class="space-y-3 text-xs text-stone-600 mb-8 border-t border-stone-200 pt-6">
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> 6 x 75-min Private Deep Dives (Zoom)</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> Unlimited Private Voxer/WhatsApp Access</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> Tailored 90-Day Life Architecture Plan</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> Full Access to The Mindset Vault</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> Emergency "SOS" 15-min Alignment Calls</li>
+            </ul>
+          </div>
+          <a href="#booking" class="w-full py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded text-center transition-colors">
+            Apply For 1-on-1 Mentorship
+          </a>
+        </div>
+
+        <!-- Tier 3: Executive Immersion -->
+        <div class="bg-brand-bg-light p-8 rounded border border-stone-200 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">6 Months + Retreat</div>
+            <h3 class="text-xl font-bold text-stone-950 mb-2">Executive VIP Immersion</h3>
+            <p class="text-xs text-stone-500 mb-6">For senior leaders and founders seeking whole-life alignment and high-level peer community.</p>
+            <div class="mb-6">
+              <span class="text-3xl font-extrabold text-stone-950">$6,500</span>
+              <span class="text-xs text-stone-500"> / 6-month package</span>
+            </div>
+            <ul class="space-y-3 text-xs text-stone-600 mb-8 border-t border-stone-200 pt-6">
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> 12 x 75-min Private Sessions with Lisa</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> 2-Day Private Luxury In-Person Immersion</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> Priority Daily Direct Access</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange"></i> Executive 360 Feedback & Blindspot Review</li>
+            </ul>
+          </div>
+          <button onclick="openConsultationModal('Executive VIP Immersion')" class="w-full py-3 bg-stone-900 hover:bg-stone-800 text-white text-xs font-bold rounded transition-colors">
+            Inquire for VIP Cohort
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       REAL CLIENT TESTIMONIALS & CASE STUDIES (AUTHENTIC SOCIAL PROOF)
+       ======================================================== -->
+  <section id="testimonials" class="py-24 bg-brand-bg-sand border-t border-stone-200/50">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      
+      <!-- Section Heading -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
+          Verified Client Outcomes
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-stone-950 tracking-tight mb-3">
+          Real Leaders. Measurable Life Breakthroughs.
+        </h2>
+        <p class="text-stone-500 text-xs sm:text-sm leading-relaxed">
+          Read candid feedback from executive leaders, founders, and creators who replaced chronic exhaustion and imposter syndrome with deep clarity, healthy boundaries, and sustainable momentum.
+        </p>
+
+        <!-- Rating Strip -->
+        <div class="mt-6 inline-flex items-center justify-center gap-2.5 px-5 py-2 bg-white rounded-full border border-stone-200/80 shadow-sm text-xs text-stone-700">
+          <div class="flex text-amber-400 gap-0.5">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+          </div>
+          <span class="font-bold text-stone-900">4.98 / 5.0</span>
+        </div>
+      </div>
+
+      <!-- Featured Spotlight Testimonial -->
+      <div class="bg-white rounded-lg p-8 sm:p-10 shadow-md border border-stone-200/80 mb-12 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
+            <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden shadow-md mb-4 border-2 border-brand-orange/40">
+              <img src="assets/images/portrait-rachel.jpg" alt="Dr. Rachel Sterling" class="w-full h-full object-cover">
+            </div>
+            <h4 class="text-base font-bold text-stone-950">Dr. Rachel Sterling</h4>
+            <p class="text-xs text-brand-orange font-bold uppercase tracking-wider mb-1">Co-Founder & CEO, Lumina Bio</p>
+            <p class="text-[11px] text-stone-400">12-Week 1-on-1 Mentorship Alum</p>
+            <div class="flex text-amber-400 gap-0.5 mt-2">
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 lg:border-l lg:border-stone-200 lg:pl-8">
+            <span class="text-4xl font-serif text-brand-orange/30 select-none block leading-none mb-2">“</span>
+            <p class="text-stone-800 text-sm sm:text-base leading-relaxed font-normal mb-4">
+              &ldquo;Before working with Lisa, I believed that chronic anxiety was simply the non-negotiable tax on high leadership. Within 90 days, she taught me somatic nervous system regulation and ruthlessly audited my calendar. We closed an $8.5M venture round while I worked 20 fewer hours a week and didn't miss family bedtime once. Lisa changed the trajectory of my career and my life.&rdquo;
+            </p>
+            <div class="text-xs text-stone-500 font-medium">
+              Key Outcome: <span class="font-bold text-stone-900">Eliminated 20 hrs of weekly operational firefighting & closed $8.5M round with calm clarity.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Real Testimonial Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        
+        <!-- Real Testimonial 1: Taylor Matthews -->
+        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3.5 mb-4">
+              <img src="assets/images/portrait-taylor.jpg" alt="Taylor Matthews" class="w-12 h-12 rounded-full object-cover shadow-sm">
+              <div>
+                <h4 class="text-sm font-bold text-stone-950">Taylor Matthews</h4>
+                <p class="text-[11px] text-stone-500 font-medium">Co-Founder & CEO, Farther</p>
+              </div>
+            </div>
+            <div class="flex text-amber-400 gap-0.5 mb-3">
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+            </div>
+            <p class="text-xs text-stone-700 leading-relaxed mb-4">
+              &ldquo;There is no better investment a startup founder can make. She has been transformational in helping me step back and see the bigger picture. As a founder, it's easy to get lost in the daily grind, but her ability to ask the right questions has helped me uncover the underlying reasons behind my decisions. She pushed me to act decisively.&rdquo;
+            </p>
+          </div>
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-[10px] text-stone-400 font-semibold uppercase tracking-wider">
+            <span>Verified Founder Review</span>
+            <span class="text-brand-orange font-bold">CEO Mentorship</span>
+          </div>
+        </div>
+
+        <!-- Real Testimonial 2: Corina Davis -->
+        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3.5 mb-4">
+              <img src="assets/images/portrait-corina.jpg" alt="Corina Davis" class="w-12 h-12 rounded-full object-cover shadow-sm">
+              <div>
+                <h4 class="text-sm font-bold text-stone-950">Corina Davis</h4>
+                <p class="text-[11px] text-stone-500 font-medium">Chief Legal Officer & EVP, Redbubble</p>
+              </div>
+            </div>
+            <div class="flex text-amber-400 gap-0.5 mb-3">
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+            </div>
+            <p class="text-xs text-stone-700 leading-relaxed mb-4">
+              &ldquo;She has been an incredible coach and partner in my executive journey. She helped me establish my leadership presence and influence with my Board of Directors, fellow executives, and throughout our organization. Specifically, we honed my communication to be thoughtful, succinct, and powerful. One of the greatest learning experiences of my career.&rdquo;
+            </p>
+          </div>
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-[10px] text-stone-400 font-semibold uppercase tracking-wider">
+            <span>Verified Executive Review</span>
+            <span class="text-brand-orange font-bold">Board & C-Suite</span>
+          </div>
+        </div>
+
+        <!-- Real Testimonial 3: Mark Stolesen -->
+        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3.5 mb-4">
+              <img src="assets/images/portrait-mark.jpg" alt="Mark Stolesen" class="w-12 h-12 rounded-full object-cover shadow-sm">
+              <div>
+                <h4 class="text-sm font-bold text-stone-950">Mark Stolesen</h4>
+                <p class="text-[11px] text-stone-500 font-medium">CEO, Legatum</p>
+              </div>
+            </div>
+            <div class="flex text-amber-400 gap-0.5 mb-3">
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+            </div>
+            <p class="text-xs text-stone-700 leading-relaxed mb-4">
+              &ldquo;She is a Jedi of executive coaching. She delivers results through intensive listening, excellent questions, and a style that blends authentic care with a firm pursuit of excellence. This was my first coaching experience after 18 years as a CEO. She unearthed the deeper issues holding me back and provided the exact tools to make progress.&rdquo;
+            </p>
+          </div>
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-[10px] text-stone-400 font-semibold uppercase tracking-wider">
+            <span>Verified CEO Review</span>
+            <span class="text-brand-orange font-bold">Executive VIP</span>
+          </div>
+        </div>
+
+        <!-- Real Testimonial 4: Brian Chen -->
+        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3.5 mb-4">
+              <img src="assets/images/portrait-brian.jpg" alt="Brian Chen" class="w-12 h-12 rounded-full object-cover shadow-sm">
+              <div>
+                <h4 class="text-sm font-bold text-stone-950">Brian Chen</h4>
+                <p class="text-[11px] text-stone-500 font-medium">Co-Founder & CEO, Room</p>
+              </div>
+            </div>
+            <div class="flex text-amber-400 gap-0.5 mb-3">
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+            </div>
+            <p class="text-xs text-stone-700 leading-relaxed mb-4">
+              &ldquo;Her deep understanding enabled her to truly comprehend the pressures I faced. Her personal dedication to my success came through in every session. Throughout our time working together, she was an indispensable sounding board and insightful thought partner. I recommend any high-growth founder work with her.&rdquo;
+            </p>
+          </div>
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-[10px] text-stone-400 font-semibold uppercase tracking-wider">
+            <span>Verified Founder Review</span>
+            <span class="text-brand-orange font-bold">1-on-1 Mentorship</span>
+          </div>
+        </div>
+
+        <!-- Real Testimonial 5: Christian G. -->
+        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3.5 mb-4">
+              <img src="assets/images/portrait-christian.jpg" alt="Christian G." class="w-12 h-12 rounded-full object-cover shadow-sm">
+              <div>
+                <h4 class="text-sm font-bold text-stone-950">Christian G.</h4>
+                <p class="text-[11px] text-stone-500 font-medium">VP of Sales, Coast</p>
+              </div>
+            </div>
+            <div class="flex text-amber-400 gap-0.5 mb-3">
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+            </div>
+            <p class="text-xs text-stone-700 leading-relaxed mb-4">
+              &ldquo;The outcomes have been concrete. I had a long-overdue difficult conversation with an underperforming report I'd avoided for months. I restructured our comp plan and defended it with total confidence to our CFO and CEO. She taught me how to lead deliberately rather than reactively.&rdquo;
+            </p>
+          </div>
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-[10px] text-stone-400 font-semibold uppercase tracking-wider">
+            <span>Verified VP Review</span>
+            <span class="text-brand-orange font-bold">Leadership Intensive</span>
+          </div>
+        </div>
+
+        <!-- Real Testimonial 6: Selena S. -->
+        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3.5 mb-4">
+              <img src="assets/images/portrait-selena.jpg" alt="Selena S." class="w-12 h-12 rounded-full object-cover shadow-sm">
+              <div>
+                <h4 class="text-sm font-bold text-stone-950">Selena S.</h4>
+                <p class="text-[11px] text-stone-500 font-medium">Author & Business Strategist</p>
+              </div>
+            </div>
+            <div class="flex text-amber-400 gap-0.5 mb-3">
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+              <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+            </div>
+            <p class="text-xs text-stone-700 leading-relaxed mb-4">
+              &ldquo;Working together completely shifted my philosophy on growth without burnout. Her frameworks are practical, actionable, and cut straight through the noise. If you want a mentor who pairs genuine human empathy with uncompromising business clarity, she is the one.&rdquo;
+            </p>
+          </div>
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-[10px] text-stone-400 font-semibold uppercase tracking-wider">
+            <span>Verified Peer Review</span>
+            <span class="text-brand-orange font-bold">Executive VIP</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom CTA Banner in Testimonials -->
+      <div class="mt-14 text-center">
+        <a href="#booking" class="inline-block px-8 py-3.5 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded-[3px] shadow-sm transition-all">
+          Experience Your Own Breakthrough &mdash; Book Free Call
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SECTION 4: COMING SOON / WORKSHOPS (ORIGINAL MOCKUP REPLICA)
+       ======================================================== -->
+  <section id="workshops" class="py-24 bg-brand-bg-light border-t border-stone-200/50">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        
+        <!-- Left Column: Feature Checkmarks -->
+        <div class="lg:col-span-6 pr-0 lg:pr-4">
+          <div class="text-[12px] font-bold text-stone-800 tracking-normal mb-3">
+            Upcoming Immersions
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight leading-[1.18] mb-5">
+            Personal Sessions<br>
+            And Cohort Workshops
+          </h2>
+
+          <p class="text-stone-600 text-[13px] sm:text-[14px] leading-relaxed mb-8 max-w-md">
+            Seasonal intimate cohorts and private in-person weekend retreats. Applications are strictly capped at 10 participants per cohort to ensure transformative depth.
+          </p>
+
+          <!-- Checkmark Items -->
+          <div class="space-y-6">
+            <div class="flex items-start gap-3.5">
+              <div class="flex-shrink-0 w-5 h-5 rounded-[3px] bg-brand-orange text-white flex items-center justify-center mt-0.5">
+                <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-stone-950 mb-0.5">
+                  Self-Improvement & Nervous System Mastery
+                </h4>
+                <p class="text-[12px] text-stone-500 leading-relaxed max-w-sm">
+                  Scientifically proven somatic tools to release chronic stress, dissolve anxiety, and access peak creative flow states.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="flex-shrink-0 w-5 h-5 rounded-[3px] bg-brand-orange text-white flex items-center justify-center mt-0.5">
+                <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-stone-950 mb-0.5">
+                  Executive Presence & Boundary Architecture
+                </h4>
+                <p class="text-[12px] text-stone-500 leading-relaxed max-w-sm">
+                  Command high-stakes conversations, negotiate with calm conviction, and protect your calendar with zero guilt.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Table Image with Offset White Frame & Overlapping Quote Card -->
+        <div class="lg:col-span-6 relative pb-16 lg:pb-12">
+          <div class="table-offset-backdrop">
+            <div class="relative z-10 overflow-hidden shadow-md aspect-[4/3]">
+              <img 
+                src="assets/images/interior-table.jpg" 
+                alt="Meeting Interior Table" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- Overlapping Testimonial Quote Card (Real Executive Client Quote) -->
+          <div class="absolute -bottom-6 sm:-bottom-8 right-2 sm:right-6 left-6 sm:left-auto bg-white p-6 sm:p-7 shadow-stats border border-stone-100 max-w-md z-20">
+            <p class="text-stone-800 text-xs sm:text-[13px] leading-relaxed font-medium italic mb-2">
+              &ldquo;Working with Lisa completely recalibrated my relationship with achievement. I now lead my 40-person company with calm certainty and no longer sacrifice my health or family evenings.&rdquo;
+            </p>
+            <div class="text-[11px] font-bold text-stone-900">— David Callahan, Tech Founder & CEO</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       NEW STRATEGIC SECTION: FREE LEAD MAGNET (EMAIL CAPTURE)
+       ======================================================== -->
+  <section class="py-20 bg-brand-bg-sand border-y border-stone-200/50">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      <div class="bg-white p-8 sm:p-12 rounded-lg border border-stone-200/70 shadow-sm">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <div class="lg:col-span-5">
+            <div class="overflow-hidden rounded shadow-md aspect-[4/3] bg-stone-100">
+              <img src="assets/images/lead-magnet.jpg" alt="7-Day Reset Workbook" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-brand-orange mb-2">Free Instant Download</div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-stone-950 tracking-tight mb-3">
+              The 7-Day Mindset Reset & Life Clarity Workbook
+            </h3>
+            <p class="text-stone-500 text-xs sm:text-sm leading-relaxed mb-6">
+              Not ready for 1-on-1 coaching yet? Download our signature self-guided workbook and 10-minute morning audio meditation used by 4,500+ professionals to reclaim focus and calm.
+            </p>
+
+            <form onsubmit="handleLeadMagnetSubmit(event)" class="space-y-3">
+              <div class="flex flex-col sm:flex-row gap-3">
+                <input 
+                  type="email" 
+                  required 
+                  placeholder="Enter your best email address..." 
+                  class="flex-1 px-4 py-3 rounded border border-stone-200 text-xs outline-none focus:border-brand-orange text-stone-800"
+                >
+                <button 
+                  type="submit" 
+                  class="px-6 py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded transition-colors whitespace-nowrap shadow-sm"
+                >
+                  Send Me The Free Guide
+                </button>
+              </div>
+              <div class="text-[11px] text-stone-400 flex items-center justify-center gap-1.5 text-center pt-0.5">
+                <i data-lucide="lock" class="w-3.5 h-3.5 text-stone-400"></i>
+                <span>100% Privacy. Zero spam. Unsubscribe anytime with 1-click.</span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       FREQUENTLY ASKED QUESTIONS (LUXURY EDITORIAL ACCORDION)
+       ======================================================== -->
+  <section id="faq" class="py-24 bg-brand-bg-light border-t border-stone-200/60">
+    <div class="max-w-4xl mx-auto px-6 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
+          Got Questions?
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-stone-950 tracking-tight mb-3">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-stone-500 text-xs sm:text-sm leading-relaxed">
+          Everything you need to know about our private mentorship, executive cohorts, and client commitments.
+        </p>
+      </div>
+
+      <!-- Luxury Accordion Container (Clean Border-Divided Layout) -->
+      <div class="bg-white rounded-xl shadow-sm border border-stone-200/80 divide-y divide-stone-200/80 overflow-hidden" id="faq-accordion">
+        
+        <!-- FAQ 1 (Open by Default) -->
+        <div class="faq-item transition-colors duration-150">
+          <button onclick="toggleFaq(this)" class="w-full px-7 sm:px-9 py-6 text-left flex items-center justify-between gap-4 group focus:outline-none">
+            <span class="text-base sm:text-lg font-bold text-stone-900 group-hover:text-brand-orange transition-colors">
+              How is life coaching different from therapy or counseling?
+            </span>
+            <div class="w-8 h-8 rounded-full bg-brand-bg-sand flex items-center justify-center text-stone-700 group-hover:bg-brand-orange group-hover:text-white flex-shrink-0 transition-colors">
+              <i data-lucide="minus" class="w-4 h-4 faq-icon transition-transform duration-200"></i>
+            </div>
+          </button>
+          <div class="faq-answer px-7 sm:px-9 pb-6 text-xs sm:text-sm text-stone-600 leading-relaxed max-w-3xl">
+            Therapy primarily looks backward to diagnose and heal clinical distress, past trauma, or psychiatric conditions. Coaching is forward-focused and strategic: we examine where you are today, establish where you want to be, and construct the psychological frameworks, boundary architectures, and daily habits to get you there with lasting momentum.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item transition-colors duration-150">
+          <button onclick="toggleFaq(this)" class="w-full px-7 sm:px-9 py-6 text-left flex items-center justify-between gap-4 group focus:outline-none">
+            <span class="text-base sm:text-lg font-bold text-stone-900 group-hover:text-brand-orange transition-colors">
+              Are sessions conducted virtually or in person?
+            </span>
+            <div class="w-8 h-8 rounded-full bg-brand-bg-sand flex items-center justify-center text-stone-700 group-hover:bg-brand-orange group-hover:text-white flex-shrink-0 transition-colors">
+              <i data-lucide="plus" class="w-4 h-4 faq-icon transition-transform duration-200"></i>
+            </div>
+          </button>
+          <div class="faq-answer hidden px-7 sm:px-9 pb-6 text-xs sm:text-sm text-stone-600 leading-relaxed max-w-3xl">
+            The vast majority of our 1-on-1 private sessions take place securely over Zoom, allowing clients across North America, Europe, and Asia to participate seamlessly. In-person executive immersions and VIP weekend retreats are hosted at select luxury boutique retreat properties in New York and California.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item transition-colors duration-150">
+          <button onclick="toggleFaq(this)" class="w-full px-7 sm:px-9 py-6 text-left flex items-center justify-between gap-4 group focus:outline-none">
+            <span class="text-base sm:text-lg font-bold text-stone-900 group-hover:text-brand-orange transition-colors">
+              How much time do I realistically need to commit each week?
+            </span>
+            <div class="w-8 h-8 rounded-full bg-brand-bg-sand flex items-center justify-center text-stone-700 group-hover:bg-brand-orange group-hover:text-white flex-shrink-0 transition-colors">
+              <i data-lucide="plus" class="w-4 h-4 faq-icon transition-transform duration-200"></i>
+            </div>
+          </button>
+          <div class="faq-answer hidden px-7 sm:px-9 pb-6 text-xs sm:text-sm text-stone-600 leading-relaxed max-w-3xl">
+            Our private clients typically invest approximately 75 minutes every two weeks for their core deep-dive session, plus roughly 15 to 20 minutes a few times a week for journaling, habit reflection, and checking in via private Voxer/WhatsApp. The program is specifically built for busy high-achievers.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item transition-colors duration-150">
+          <button onclick="toggleFaq(this)" class="w-full px-7 sm:px-9 py-6 text-left flex items-center justify-between gap-4 group focus:outline-none">
+            <span class="text-base sm:text-lg font-bold text-stone-900 group-hover:text-brand-orange transition-colors">
+              What if I have an unpredictable schedule or frequent travel?
+            </span>
+            <div class="w-8 h-8 rounded-full bg-brand-bg-sand flex items-center justify-center text-stone-700 group-hover:bg-brand-orange group-hover:text-white flex-shrink-0 transition-colors">
+              <i data-lucide="plus" class="w-4 h-4 faq-icon transition-transform duration-200"></i>
+            </div>
+          </button>
+          <div class="faq-answer hidden px-7 sm:px-9 pb-6 text-xs sm:text-sm text-stone-600 leading-relaxed max-w-3xl">
+            Flexibility is baked in. You will have a dedicated scheduling portal with multiple weekly time slots across mornings and evenings. If you need to reschedule a call, you can do so with 24 hours notice at zero penalty.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item transition-colors duration-150">
+          <button onclick="toggleFaq(this)" class="w-full px-7 sm:px-9 py-6 text-left flex items-center justify-between gap-4 group focus:outline-none">
+            <span class="text-base sm:text-lg font-bold text-stone-900 group-hover:text-brand-orange transition-colors">
+              Can my company or employer sponsor my coaching?
+            </span>
+            <div class="w-8 h-8 rounded-full bg-brand-bg-sand flex items-center justify-center text-stone-700 group-hover:bg-brand-orange group-hover:text-white flex-shrink-0 transition-colors">
+              <i data-lucide="plus" class="w-4 h-4 faq-icon transition-transform duration-200"></i>
+            </div>
+          </button>
+          <div class="faq-answer hidden px-7 sm:px-9 pb-6 text-xs sm:text-sm text-stone-600 leading-relaxed max-w-3xl">
+            Yes! Approximately 45% of our private clients have their coaching tuition fully or partially subsidized through their company's Professional Development, Leadership L&D, or Executive Stipend budgets. We provide comprehensive enterprise invoices upon request.
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item transition-colors duration-150">
+          <button onclick="toggleFaq(this)" class="w-full px-7 sm:px-9 py-6 text-left flex items-center justify-between gap-4 group focus:outline-none">
+            <span class="text-base sm:text-lg font-bold text-stone-900 group-hover:text-brand-orange transition-colors">
+              What is your satisfaction guarantee?
+            </span>
+            <div class="w-8 h-8 rounded-full bg-brand-bg-sand flex items-center justify-center text-stone-700 group-hover:bg-brand-orange group-hover:text-white flex-shrink-0 transition-colors">
+              <i data-lucide="plus" class="w-4 h-4 faq-icon transition-transform duration-200"></i>
+            </div>
+          </button>
+          <div class="faq-answer hidden px-7 sm:px-9 pb-6 text-xs sm:text-sm text-stone-600 leading-relaxed max-w-3xl">
+            We stand completely behind the caliber of our mentorship. If after completing your initial 2 private deep-dive sessions you do not feel a profound clarity shift, simply let us know and we will refund 100% of your remaining investment with no hard feelings.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Helpful Support Card below FAQ -->
+      <div class="mt-12 p-6 sm:p-8 bg-white rounded-xl border border-stone-200/80 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+        <div>
+          <h4 class="text-base font-bold text-stone-950 mb-1">Have a question not answered here?</h4>
+          <p class="text-xs text-stone-500">Schedule a quick 15-minute alignment call with Lisa or send a note to our advisory team.</p>
+        </div>
+        <a href="#booking" class="px-6 py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded-[3px] shadow-sm transition-all whitespace-nowrap flex-shrink-0">
+          Ask a Question
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       NEW STRATEGIC SECTION: INTERACTIVE CALENDAR BOOKING WIDGET
+       ======================================================== -->
+  <section id="booking" class="py-24 bg-brand-bg-sand border-t border-stone-200/50">
+    <div class="max-w-4xl mx-auto px-6 sm:px-8">
+      
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
+          Start Your Journey
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight mb-3">
+          Book Your Free 20-Min Alignment Call
+        </h2>
+        <p class="text-stone-500 text-xs sm:text-sm">
+          Pick a date and time that fits your calendar. No pitch, no pressure — just pure clarity.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg p-6 sm:p-10 shadow-sm border border-stone-200/70">
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          
+          <!-- Date & Time Selector Column -->
+          <div class="md:col-span-5 border-b md:border-b-0 md:border-r border-stone-200 pb-6 md:pb-0 md:pr-6">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-950 mb-4 flex items-center gap-2">
+              <i data-lucide="calendar" class="w-4 h-4 text-brand-orange"></i> Select A Date
+            </h4>
+            
+            <!-- Dates Selection Grid -->
+            <div class="grid grid-cols-2 gap-2 mb-6" id="date-buttons">
+              <button type="button" onclick="selectDate(this, 'Mon, Nov 17')" class="p-2.5 rounded text-xs font-bold border border-brand-orange bg-brand-orange text-white text-center transition-all">
+                Mon, Nov 17
+              </button>
+              <button type="button" onclick="selectDate(this, 'Tue, Nov 18')" class="p-2.5 rounded text-xs font-bold border border-stone-200 bg-brand-bg-light text-stone-800 hover:border-brand-orange text-center transition-all">
+                Tue, Nov 18
+              </button>
+              <button type="button" onclick="selectDate(this, 'Wed, Nov 19')" class="p-2.5 rounded text-xs font-bold border border-stone-200 bg-brand-bg-light text-stone-800 hover:border-brand-orange text-center transition-all">
+                Wed, Nov 19
+              </button>
+              <button type="button" onclick="selectDate(this, 'Thu, Nov 20')" class="p-2.5 rounded text-xs font-bold border border-stone-200 bg-brand-bg-light text-stone-800 hover:border-brand-orange text-center transition-all">
+                Thu, Nov 20
+              </button>
+            </div>
+
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-950 mb-3 flex items-center gap-2">
+              <i data-lucide="clock" class="w-4 h-4 text-brand-orange"></i> Available Time Slots
+            </h4>
+
+            <div class="grid grid-cols-2 gap-2" id="time-buttons">
+              <button type="button" onclick="selectTime(this, '10:00 AM EST')" class="py-2 rounded text-xs font-semibold border border-brand-orange bg-brand-orange-light text-brand-orange text-center transition-all">
+                10:00 AM EST
+              </button>
+              <button type="button" onclick="selectTime(this, '11:30 AM EST')" class="py-2 rounded text-xs font-semibold border border-stone-200 text-stone-700 hover:border-brand-orange text-center transition-all">
+                11:30 AM EST
+              </button>
+              <button type="button" onclick="selectTime(this, '2:00 PM EST')" class="py-2 rounded text-xs font-semibold border border-stone-200 text-stone-700 hover:border-brand-orange text-center transition-all">
+                2:00 PM EST
+              </button>
+              <button type="button" onclick="selectTime(this, '4:30 PM EST')" class="py-2 rounded text-xs font-semibold border border-stone-200 text-stone-700 hover:border-brand-orange text-center transition-all">
+                4:30 PM EST
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Contact Form Details Column -->
+          <div class="md:col-span-7">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-stone-950 mb-4 flex items-center gap-2">
+              <i data-lucide="user" class="w-4 h-4 text-brand-orange"></i> Your Information
+            </h4>
+
+            <form onsubmit="handleCalendarSubmit(event)" class="space-y-4">
+              <div>
+                <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Full Name</label>
+                <input id="booking-name" type="text" required placeholder="e.g. Jessica Morgan" class="w-full px-3.5 py-2.5 rounded border border-stone-200 text-xs outline-none focus:border-brand-orange text-stone-800">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Email Address</label>
+                  <input id="booking-email" type="email" required placeholder="jessica@example.com" class="w-full px-3.5 py-2.5 rounded border border-stone-200 text-xs outline-none focus:border-brand-orange text-stone-800">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Phone (Optional)</label>
+                  <input type="tel" placeholder="+1 (555) 000-0000" class="w-full px-3.5 py-2.5 rounded border border-stone-200 text-xs outline-none focus:border-brand-orange text-stone-800">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">What is your #1 goal for this call?</label>
+                <textarea rows="2" placeholder="e.g. Overcoming burnout, finding career direction, setting boundaries..." class="w-full px-3.5 py-2.5 rounded border border-stone-200 text-xs outline-none focus:border-brand-orange text-stone-800"></textarea>
+              </div>
+
+              <!-- Selected slot summary -->
+              <div class="p-3 bg-brand-bg-light rounded border border-stone-200 flex items-center justify-between text-xs">
+                <span class="text-stone-500">Selected Appointment:</span>
+                <span class="font-bold text-stone-900" id="selected-summary">Mon, Nov 17 at 10:00 AM EST</span>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded shadow-sm transition-all">
+                Confirm My Free 20-Min Call
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer id="contacts" class="bg-stone-950 text-white pt-16 pb-12 border-t border-stone-800">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <span class="font-signature text-4xl text-white block mb-3">Lisa Johnson</span>
+          <p class="text-stone-400 text-xs sm:text-sm leading-relaxed max-w-sm mb-4">
+            Professional personal development and wellness coaching tailored to help high-achieving individuals cultivate deep mindfulness, clarity, purpose, and balance in everyday life.
+          </p>
+          <div class="text-xs text-stone-400 space-y-1.5 mb-2">
+            <div>Direct Advisory Line: <a href="tel:+12126581920" class="text-white hover:text-brand-orange font-bold">+1 (212) 658-1920</a></div>
+            <div>Client Inquiries: <a href="mailto:advisory@lisajohnson.com" class="text-white hover:text-brand-orange font-semibold">advisory@lisajohnson.com</a></div>
+            <div>Executive Studio: <span class="text-stone-300">575 5th Ave, 14th Floor, New York, NY 10017</span></div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Navigation</h4>
+          <ul class="space-y-2 text-xs text-stone-400">
+            <li><a href="#hero" class="hover:text-brand-orange">Home</a></li>
+            <li><a href="#about" class="hover:text-brand-orange">About Lisa</a></li>
+            <li><a href="#philosophy" class="hover:text-brand-orange">The Philosophy</a></li>
+            <li><a href="#how-it-works" class="hover:text-brand-orange">How It Works</a></li>
+            <li><a href="#pricing" class="hover:text-brand-orange">Programs & Pricing</a></li>
+            <li><a href="#testimonials" class="hover:text-brand-orange">Client Stories</a></li>
+            <li><a href="#faq" class="hover:text-brand-orange">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3.5">Follow Along</h4>
+          <div class="flex items-center gap-2.5 text-white mb-6">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" class="w-9 h-9 rounded-lg bg-stone-900 border border-stone-800 hover:bg-brand-orange hover:border-brand-orange text-stone-300 hover:text-white flex items-center justify-center transition-all shadow-sm group" title="Facebook">
+              <svg class="w-4 h-4 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <!-- X / Twitter -->
+            <a href="https://twitter.com" target="_blank" rel="noreferrer" class="w-9 h-9 rounded-lg bg-stone-900 border border-stone-800 hover:bg-brand-orange hover:border-brand-orange text-stone-300 hover:text-white flex items-center justify-center transition-all shadow-sm group" title="X (Twitter)">
+              <svg class="w-3.5 h-3.5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" class="w-9 h-9 rounded-lg bg-stone-900 border border-stone-800 hover:bg-brand-orange hover:border-brand-orange text-stone-300 hover:text-white flex items-center justify-center transition-all shadow-sm group" title="Instagram">
+              <svg class="w-4 h-4 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="w-9 h-9 rounded-lg bg-stone-900 border border-stone-800 hover:bg-brand-orange hover:border-brand-orange text-stone-300 hover:text-white flex items-center justify-center transition-all shadow-sm group" title="LinkedIn">
+              <svg class="w-3.5 h-3.5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="text-[11px] text-stone-500">
+            Certified Member of the International Coaching Federation (ICF).
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-stone-800 text-[11px] text-stone-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          &copy; 2026 Lisa Johnson Coaching. All rights reserved.
+        </div>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-stone-300">Privacy Policy</a>
+          <a href="#" class="hover:text-stone-300">Terms of Mentorship</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========================================================
+       MODALS: FREE CONSULTATION & SEARCH
+       ======================================================== -->
+  <div id="consultation-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-200">
+    <div class="bg-white rounded-lg max-w-md w-full p-6 shadow-2xl relative">
+      <button onclick="closeConsultationModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-700">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <h3 class="text-xl font-bold text-stone-950 mb-1">Inquire About Program</h3>
+      <p class="text-xs text-stone-500 mb-5">Share your details and Lisa will reach out to schedule an onboarding call.</p>
+      <form onsubmit="handleConsultationSubmit(event)" class="space-y-3.5">
+        <div>
+          <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Name</label>
+          <input type="text" required placeholder="Your full name" class="w-full px-3.5 py-2.5 rounded border border-stone-200 text-xs outline-none focus:border-brand-orange">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Email</label>
+          <input type="email" required placeholder="you@example.com" class="w-full px-3.5 py-2.5 rounded border border-stone-200 text-xs outline-none focus:border-brand-orange">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-stone-700 uppercase mb-1">Selected Program</label>
+          <select id="program-select" class="w-full px-3.5 py-2.5 rounded border border-stone-200 text-xs outline-none focus:border-brand-orange text-stone-700">
+            <option>1-on-1 Private Mentorship ($3,500)</option>
+            <option>The Mindset Vault ($497)</option>
+            <option>Executive VIP Immersion ($6,500)</option>
+            <option>Workshops & Events</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded shadow-sm transition-all mt-2">
+          Submit Program Inquiry
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="search-modal" class="fixed inset-0 z-50 flex items-start justify-center pt-24 px-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-200">
+    <div class="bg-white rounded-lg max-w-lg w-full p-5 shadow-2xl">
+      <div class="flex items-center gap-3 border-b border-stone-200 pb-3">
+        <i data-lucide="search" class="w-4 h-4 text-stone-400"></i>
+        <input id="search-input" type="text" placeholder="Search programs, philosophy, FAQ..." class="w-full text-sm outline-none text-stone-900">
+        <button onclick="closeSearchModal()" class="text-xs text-stone-400 hover:text-stone-700">ESC</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL: APPOINTMENT CONFIRMATION POPUP
+       ======================================================== -->
+  <div id="booking-confirmation-modal" onclick="if(event.target === this) closeBookingModal()" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/75 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+    <div id="booking-modal-card" class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-stone-200/80 transform scale-95 transition-all duration-300">
+      
+      <!-- Close Button -->
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-500 hover:text-stone-800 flex items-center justify-center transition-colors">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Success Icon -->
+      <div class="w-16 h-16 rounded-full bg-brand-orange-light border border-brand-orange/20 text-brand-orange flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="calendar-check" class="w-8 h-8 stroke-[2.2]"></i>
+      </div>
+
+      <!-- Header Copy -->
+      <div class="text-center mb-5">
+        <span class="inline-block px-3 py-1 bg-brand-orange-light text-brand-orange text-[10px] font-bold uppercase tracking-wider rounded-full mb-2">
+          Appointment Confirmed
+        </span>
+        <h3 class="text-2xl sm:text-[26px] font-extrabold text-stone-950 tracking-tight">
+          You're All Set with Lisa!
+        </h3>
+        <p class="text-xs text-stone-600 mt-1.5 max-w-sm mx-auto leading-relaxed">
+          Your private discovery session has been locked in. Calendar invitation & Google Meet link sent to <span id="confirm-modal-email" class="font-bold text-stone-900"></span>.
+        </p>
+      </div>
+
+      <!-- Appointment Detail Summary Card -->
+      <div class="bg-brand-bg-sand/70 rounded-xl p-4 sm:p-5 border border-stone-200/80 mb-5 space-y-2.5">
+        <div class="flex items-center justify-between pb-2.5 border-b border-stone-200/60">
+          <div class="flex items-center gap-2 text-xs text-stone-600">
+            <i data-lucide="calendar" class="w-4 h-4 text-brand-orange"></i>
+            <span>Date & Time</span>
+          </div>
+          <span id="confirm-modal-datetime" class="text-xs font-bold text-stone-950"></span>
+        </div>
+
+        <div class="flex items-center justify-between pb-2.5 border-b border-stone-200/60">
+          <div class="flex items-center gap-2 text-xs text-stone-600">
+            <i data-lucide="video" class="w-4 h-4 text-brand-orange"></i>
+            <span>Session Type</span>
+          </div>
+          <span class="text-xs font-bold text-stone-950">20-Min Executive Discovery Call</span>
+        </div>
+
+        <div class="flex items-center justify-between pb-2.5 border-b border-stone-200/60">
+          <div class="flex items-center gap-2 text-xs text-stone-600">
+            <i data-lucide="user-check" class="w-4 h-4 text-brand-orange"></i>
+            <span>Advisor</span>
+          </div>
+          <span class="text-xs font-bold text-stone-950">Lisa Johnson (1-on-1 Private)</span>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2 text-xs text-stone-600">
+            <i data-lucide="shield-check" class="w-4 h-4 text-brand-orange"></i>
+            <span>Reserved For</span>
+          </div>
+          <span id="confirm-modal-name" class="text-xs font-bold text-stone-950"></span>
+        </div>
+      </div>
+
+      <!-- Quick Tips Box -->
+      <div class="bg-stone-50 rounded-lg p-3 text-[11px] text-stone-600 mb-6 space-y-1.5 border border-stone-200/50">
+        <div class="flex items-start gap-2">
+          <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-orange flex-shrink-0 mt-0.5"></i>
+          <span>Check your inbox for the calendar invite (and spam/promotions folder just in case).</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-orange flex-shrink-0 mt-0.5"></i>
+          <span>Come prepared with your primary focus area or current bottleneck.</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center gap-3">
+        <button onclick="closeBookingModal()" class="w-full sm:flex-1 py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded shadow-sm hover:shadow transition-all">
+          Done & Close
+        </button>
+        <button onclick="addToCalendarAction()" class="w-full sm:w-auto px-5 py-3 border border-stone-300 hover:border-brand-orange bg-white text-stone-800 hover:text-brand-orange text-xs font-bold rounded transition-all flex items-center justify-center gap-2">
+          <i data-lucide="calendar-plus" class="w-3.5 h-3.5 text-brand-orange"></i> Add to Calendar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-stone-950 text-white px-5 py-3 rounded shadow-2xl flex items-center gap-3">
+    <i data-lucide="check" class="w-4 h-4 text-brand-orange"></i>
+    <span class="text-xs font-medium" id="toast-message">Request submitted successfully!</span>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Mobile menu
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    // Modal
+    function openConsultationModal(program) {
+      const modal = document.getElementById('consultation-modal');
+      const select = document.getElementById('program-select');
+      if (program && select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].text.toLowerCase().includes(program.toLowerCase())) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeConsultationModal() {
+      document.getElementById('consultation-modal').classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function openSearchModal() {
+      const modal = document.getElementById('search-modal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => document.getElementById('search-input').focus(), 100);
+    }
+
+    function closeSearchModal() {
+      document.getElementById('search-modal').classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    // Booking Confirmation Modal Controls
+    function openBookingModal(name, email, datetime) {
+      document.getElementById('confirm-modal-name').innerText = name || 'Valued Client';
+      document.getElementById('confirm-modal-email').innerText = email || 'your email';
+      document.getElementById('confirm-modal-datetime').innerText = datetime;
+
+      const modal = document.getElementById('booking-confirmation-modal');
+      const card = document.getElementById('booking-modal-card');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      card.classList.remove('scale-95');
+      card.classList.add('scale-100');
+      lucide.createIcons();
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('booking-confirmation-modal');
+      const card = document.getElementById('booking-modal-card');
+      card.classList.remove('scale-100');
+      card.classList.add('scale-95');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function addToCalendarAction() {
+      const title = encodeURIComponent("Lisa Johnson - Executive Discovery Call");
+      const details = encodeURIComponent("Confidential 1-on-1 strategy discovery call with Lisa Johnson. Video link in confirmation email.");
+      const location = encodeURIComponent("Google Meet (Private Link)");
+      const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}`;
+      window.open(url, '_blank');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeConsultationModal();
+        closeSearchModal();
+        closeBookingModal();
+      }
+    });
+
+    // FAQ Accordion Toggle
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = !answer.classList.contains('hidden');
+
+      // Close all other items
+      document.querySelectorAll('#faq-accordion .faq-answer').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('#faq-accordion .faq-icon').forEach(ic => {
+        ic.setAttribute('data-lucide', 'plus');
+        ic.style.transform = 'rotate(0deg)';
+      });
+
+      // Toggle current item
+      if (!isOpen) {
+        answer.classList.remove('hidden');
+        icon.setAttribute('data-lucide', 'minus');
+      }
+      lucide.createIcons();
+    }
+
+    // Calendar Widget Selection
+    let selectedDateVal = "Mon, Nov 17";
+    let selectedTimeVal = "10:00 AM EST";
+
+    function selectDate(btn, date) {
+      selectedDateVal = date;
+      const container = document.getElementById('date-buttons');
+      container.querySelectorAll('button').forEach(b => {
+        b.className = "p-2.5 rounded text-xs font-bold border border-stone-200 bg-brand-bg-light text-stone-800 hover:border-brand-orange text-center transition-all";
+      });
+      btn.className = "p-2.5 rounded text-xs font-bold border border-brand-orange bg-brand-orange text-white text-center transition-all";
+      updateSummary();
+    }
+
+    function selectTime(btn, time) {
+      selectedTimeVal = time;
+      const container = document.getElementById('time-buttons');
+      container.querySelectorAll('button').forEach(b => {
+        b.className = "py-2 rounded text-xs font-semibold border border-stone-200 text-stone-700 hover:border-brand-orange text-center transition-all";
+      });
+      btn.className = "py-2 rounded text-xs font-semibold border border-brand-orange bg-brand-orange-light text-brand-orange text-center transition-all";
+      updateSummary();
+    }
+
+    function updateSummary() {
+      document.getElementById('selected-summary').innerText = `${selectedDateVal} at ${selectedTimeVal}`;
+    }
+
+    function handleCalendarSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('booking-name') ? document.getElementById('booking-name').value : '';
+      const email = document.getElementById('booking-email') ? document.getElementById('booking-email').value : '';
+      const datetime = `${selectedDateVal} at ${selectedTimeVal}`;
+      openBookingModal(name, email, datetime);
+      e.target.reset();
+    }
+
+    function handleLeadMagnetSubmit(e) {
+      e.preventDefault();
+      showToast("Check your inbox! The 7-Day Mindset Reset Workbook has been sent.");
+      e.target.reset();
+    }
+
+    function handleConsultationSubmit(e) {
+      e.preventDefault();
+      closeConsultationModal();
+      showToast("Thank you! Program inquiry received. Lisa will contact you shortly.");
+      e.target.reset();
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none'), 4000);
+    }
+
+    // Dynamic Scrollspy Navigation
+    const navSections = [
+      'hero',
+      'about',
+      'philosophy',
+      'how-it-works',
+      'offerings',
+      'pricing',
+      'testimonials',
+      'workshops',
+      'faq',
+      'booking'
+    ];
+
+    function updateActiveNav() {
+      const scrollPos = window.scrollY + 220; // offset to accommodate sticky header
+      let currentSection = 'hero';
+
+      navSections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPos >= top) {
+            currentSection = id;
+          }
+        }
+      });
+
+      // Remap secondary sections
+      let activeTarget = currentSection;
+      if (currentSection === 'workshops') {
+        activeTarget = 'offerings';
+      }
+
+      // Update Desktop Nav Links
+      document.querySelectorAll('#desktop-nav .nav-link').forEach(link => {
+        const href = link.getAttribute('href').replace('#', '');
+        if (href === activeTarget) {
+          link.classList.remove('text-stone-700');
+          link.classList.add('text-brand-orange', 'font-bold');
+        } else {
+          link.classList.remove('text-brand-orange', 'font-bold');
+          link.classList.add('text-stone-700');
+        }
+      });
+
+      // Update Mobile Nav Links
+      document.querySelectorAll('#mobile-nav .mobile-nav-link').forEach(link => {
+        const href = link.getAttribute('href').replace('#', '');
+        if (href === activeTarget) {
+          link.classList.remove('text-stone-700');
+          link.classList.add('text-brand-orange', 'font-bold');
+        } else {
+          link.classList.remove('text-brand-orange', 'font-bold');
+          link.classList.add('text-stone-700');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    window.addEventListener('DOMContentLoaded', updateActiveNav);
+    setTimeout(updateActiveNav, 150);
+  </script>
+
+</body>
+</html>
