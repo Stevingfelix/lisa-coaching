@@ -57,8 +57,100 @@
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Motion (by Framer) Standalone CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/motion@11.11.17/dist/motion.js"></script>
 
   <style>
+    /* Framer Motion Spring & Easing Physics */
+    :root {
+      --framer-ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --framer-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Motion Core Animated Elements */
+    .motion-item {
+      opacity: 0;
+      will-change: transform, opacity;
+      transition-property: transform, opacity;
+      transition-duration: 0.9s;
+      transition-timing-function: var(--framer-ease);
+    }
+
+    /* Motion Entrance Variants */
+    .motion-slide-up {
+      transform: translateY(32px);
+    }
+    .motion-slide-down {
+      transform: translateY(-32px);
+    }
+    .motion-slide-left {
+      transform: translateX(36px);
+    }
+    .motion-slide-right {
+      transform: translateX(-36px);
+    }
+    .motion-scale-up {
+      transform: scale(0.93);
+    }
+    .motion-pop {
+      transform: scale(0.85);
+      transition-timing-function: var(--framer-spring);
+    }
+    .motion-fade {
+      transform: none;
+    }
+
+    /* Active State triggered by IntersectionObserver */
+    .motion-visible,
+    .motion-section.motion-visible .motion-item {
+      opacity: 1 !important;
+      transform: translate3d(0, 0, 0) scale(1) !important;
+    }
+
+    /* Stagger Delays for Cascade Entrances */
+    .stagger-1 { transition-delay: 80ms; }
+    .stagger-2 { transition-delay: 160ms; }
+    .stagger-3 { transition-delay: 240ms; }
+    .stagger-4 { transition-delay: 320ms; }
+    .stagger-5 { transition-delay: 400ms; }
+    .stagger-6 { transition-delay: 480ms; }
+
+    /* Interactive Framer Card Hover Spring */
+    .framer-card-hover {
+      transition: transform 0.45s var(--framer-ease), box-shadow 0.45s var(--framer-ease), border-color 0.3s ease;
+    }
+    .framer-card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -8px rgba(28, 63, 58, 0.12), 0 0 1px 1px rgba(28, 63, 58, 0.05);
+    }
+
+    /* Framer Floating Keyframes */
+    @keyframes framerFloat {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+    .framer-float {
+      animation: framerFloat 6s ease-in-out infinite;
+    }
+    .framer-float-delayed {
+      animation: framerFloat 7s ease-in-out infinite;
+      animation-delay: -3s;
+    }
+
+    /* Subtle Pulse */
+    @keyframes framerPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.03); opacity: 0.92; }
+    }
+    .framer-pulse {
+      animation: framerPulse 4s ease-in-out infinite;
+    }
+
     /* Section 3 Offerings Offset Backdrop */
     .card-offset-backdrop {
       position: relative;
@@ -124,9 +216,24 @@
       background-color: #1C3F3A;
       color: #FFFFFF;
     }
+
+    /* Accessibility / Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      .motion-item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .framer-float, .framer-float-delayed, .framer-pulse {
+        animation: none !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-brand-bg-light text-brand-text font-sans antialiased overflow-x-hidden">
+
+  <!-- Framer Motion Style Scroll Progress Bar -->
+  <div id="scroll-progress-bar" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-brand-gold via-brand-emerald to-stone-900 z-[9999] transition-all duration-75 ease-out pointer-events-none" style="width: 0%;"></div>
 
   <!-- ========================================================
        TOP NAVIGATION BAR (CENTERED TWO-TIER EDITORIAL STYLE)
@@ -201,29 +308,29 @@
   <!-- ========================================================
        SECTION 1: HERO SECTION (ORIGINAL MOCKUP REPLICA)
        ======================================================== -->
-  <section id="hero" class="relative pt-10 pb-36 lg:pb-44 bg-brand-bg-light overflow-visible">
+  <section id="hero" class="motion-section relative pt-10 pb-36 lg:pb-44 bg-brand-bg-light overflow-visible">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
         
         <!-- Left Hero Content -->
         <div class="lg:col-span-7 z-10 pt-2 lg:pt-6">
-          <div class="text-[13px] font-bold text-stone-900 tracking-normal mb-4">
+          <div class="motion-item motion-slide-up stagger-1 text-[13px] font-bold text-stone-900 tracking-normal mb-4">
             Self-Improvement & Wellness
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-stone-950 tracking-tight leading-[1.12] mb-6">
+          <h1 class="motion-item motion-slide-up stagger-2 text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-stone-950 tracking-tight leading-[1.12] mb-6">
             Make A Positive<br>
             Change In Your<br>
             Life Today
           </h1>
 
           <!-- Description paragraph -->
-          <p class="text-stone-500 text-[13px] sm:text-[14px] leading-relaxed max-w-md mb-8">
+          <p class="motion-item motion-slide-up stagger-3 text-stone-500 text-[13px] sm:text-[14px] leading-relaxed max-w-md mb-8">
             Break free from chronic overwhelm and second-guessing. Bespoke 1-on-1 mentorship designed to help ambitious leaders, founders, and professionals cultivate unshakeable mental clarity, emotional resilience, and intentional success.
           </p>
 
           <!-- Buttons -->
-          <div class="flex items-center gap-6">
+          <div class="motion-item motion-slide-up stagger-4 flex items-center gap-6">
             <a href="#offerings" class="px-9 py-4 bg-brand-orange hover:bg-brand-orange-hover text-white text-sm font-bold tracking-wide rounded-[4px] shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
               Coaching
             </a>
@@ -237,13 +344,13 @@
         <div class="lg:col-span-5 relative mt-8 lg:mt-0 flex justify-center lg:justify-end">
           
           <!-- Decorative Circular Wall Art (from mockup behind coach's left) -->
-          <div class="absolute -left-12 sm:-left-16 top-6 w-36 h-36 rounded-full bg-[#E6EAE4] shadow-inner border border-stone-200/60 flex items-center justify-center opacity-80 pointer-events-none z-0">
+          <div class="motion-item motion-scale-up stagger-2 framer-float-delayed absolute -left-12 sm:-left-16 top-6 w-36 h-36 rounded-full bg-[#E6EAE4] shadow-inner border border-stone-200/60 flex items-center justify-center opacity-80 pointer-events-none z-0">
             <div class="w-24 h-24 rounded-full bg-[#EFF2ED] shadow-sm"></div>
           </div>
 
           <!-- Coach Portrait Image & Attached Overlapping Floating Card -->
           <div class="relative z-10 w-full max-w-[360px] sm:max-w-[400px]">
-            <div class="relative overflow-hidden">
+            <div class="motion-item motion-scale-up stagger-3 relative overflow-hidden">
               <img 
                 src="assets/images/hero-coach.jpg" 
                 alt="Lisa Johnson" 
@@ -252,8 +359,8 @@
             </div>
 
             <!-- Overlapping Floating Card: Deep offset at bottom-right of hero image -->
-            <div class="absolute -bottom-14 -right-8 sm:-bottom-16 sm:-right-16 lg:-bottom-20 lg:-right-20 z-30 w-[290px] sm:w-[330px]">
-              <div class="bg-white p-5 sm:p-6 shadow-2xl border border-stone-200/60 rounded-sm">
+            <div class="motion-item motion-slide-left stagger-4 framer-float absolute -bottom-14 -right-8 sm:-bottom-16 sm:-right-16 lg:-bottom-20 lg:-right-20 z-30 w-[290px] sm:w-[330px]">
+              <div class="framer-card-hover bg-white p-5 sm:p-6 shadow-2xl border border-stone-200/60 rounded-sm">
                 <h3 class="text-sm sm:text-base font-bold text-stone-950 mb-1">
                   Ready For Your Breakthrough?
                 </h3>
@@ -281,7 +388,7 @@
           </div>
 
           <!-- Dried Floral / Pampas Accent (foreground bottom left of hero image) -->
-          <div class="absolute -bottom-6 -left-6 lg:-left-10 w-28 sm:w-36 pointer-events-none z-20 opacity-85">
+          <div class="motion-item motion-slide-up stagger-5 absolute -bottom-6 -left-6 lg:-left-10 w-28 sm:w-36 pointer-events-none z-20 opacity-85">
             <svg viewBox="0 0 160 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
               <path d="M80 220C80 180 85 130 95 80C98 60 105 40 115 15" stroke="#C4B5A5" stroke-width="2" stroke-linecap="round"/>
               <path d="M70 220C70 170 65 120 50 70C45 55 35 40 25 25" stroke="#C4B5A5" stroke-width="1.8" stroke-linecap="round"/>
@@ -305,15 +412,15 @@
   <!-- ========================================================
        AS SEEN IN / ACCREDITATIONS BAR (CENTERED)
        ======================================================== -->
-  <section class="py-9 bg-white border-y border-stone-200/50">
+  <section class="motion-section py-9 bg-white border-y border-stone-200/50">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
       <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-12 text-center">
         
-        <span class="text-[11px] font-bold uppercase tracking-wider text-stone-400 flex-shrink-0">
+        <span class="motion-item motion-slide-up stagger-1 text-[11px] font-bold uppercase tracking-wider text-stone-400 flex-shrink-0">
           Featured In & Certified By
         </span>
 
-        <div class="flex flex-wrap items-center justify-center gap-7 sm:gap-10 opacity-70 hover:opacity-100 transition-opacity">
+        <div class="motion-item motion-fade stagger-2 flex flex-wrap items-center justify-center gap-7 sm:gap-10 opacity-70 hover:opacity-100 transition-opacity">
           <span class="font-bold text-lg sm:text-xl tracking-tighter text-stone-800 hover:text-brand-orange transition-colors">Forbes</span>
           <span class="font-serif italic font-semibold text-lg sm:text-xl text-stone-800 hover:text-brand-orange transition-colors">Mindvalley</span>
           <span class="font-extrabold text-lg sm:text-xl tracking-tight text-stone-800 hover:text-brand-orange transition-colors"><span class="text-brand-orange">TED</span>x</span>
@@ -333,14 +440,14 @@
   <!-- ========================================================
        SECTION 2: PERSONAL SESSIONS (ORIGINAL MOCKUP REPLICA)
        ======================================================== -->
-  <section id="about" class="pt-24 pb-20 lg:pt-28 lg:pb-28 bg-brand-bg-sand">
+  <section id="about" class="motion-section pt-24 pb-20 lg:pt-28 lg:pb-28 bg-brand-bg-sand">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
         
         <!-- Left Column: Group Photo with Offset White Backdrop & Overlapping Stats Card -->
         <div class="lg:col-span-6 relative pb-12 sm:pb-8">
           
-          <div class="session-offset-backdrop">
+          <div class="motion-item motion-slide-right session-offset-backdrop">
             <div class="relative z-10 overflow-hidden shadow-md">
               <img 
                 src="assets/images/group-session.jpg" 
@@ -351,12 +458,12 @@
           </div>
 
           <!-- Overlapping Bottom-Left Stats Card -->
-          <div class="absolute -bottom-4 sm:-bottom-6 left-2 sm:left-4 z-20 bg-white p-5 sm:p-6 shadow-stats border border-stone-100 max-w-sm">
+          <div class="motion-item motion-slide-up stagger-2 framer-card-hover absolute -bottom-4 sm:-bottom-6 left-2 sm:left-4 z-20 bg-white p-5 sm:p-6 shadow-stats border border-stone-100 max-w-sm rounded-sm">
             <div class="grid grid-cols-3 gap-2 sm:gap-4 divide-x divide-stone-200">
               <!-- 98% -->
               <div class="pr-2 text-left">
                 <div class="text-2xl sm:text-[28px] font-extrabold text-stone-950 tracking-tight leading-none mb-1">
-                  98%
+                  <span class="stat-counter" data-target="98" data-suffix="%">98%</span>
                 </div>
                 <div class="text-[10px] sm:text-[11px] text-stone-500 leading-tight">
                   Client Goal<br>Completion
@@ -366,7 +473,7 @@
               <!-- 750+ -->
               <div class="px-2 sm:px-3 text-left">
                 <div class="text-2xl sm:text-[28px] font-extrabold text-stone-950 tracking-tight leading-none mb-1">
-                  750+
+                  <span class="stat-counter" data-target="750" data-suffix="+">750+</span>
                 </div>
                 <div class="text-[10px] sm:text-[11px] text-stone-500 leading-tight">
                   1-on-1 Deep<br>Dive Hours
@@ -376,7 +483,7 @@
               <!-- 20+ -->
               <div class="pl-2 sm:pl-3 text-left">
                 <div class="text-2xl sm:text-[28px] font-extrabold text-stone-950 tracking-tight leading-none mb-1">
-                  20+
+                  <span class="stat-counter" data-target="20" data-suffix="+">20+</span>
                 </div>
                 <div class="text-[10px] sm:text-[11px] text-stone-500 leading-tight">
                   Years Guiding<br>Top Leaders
@@ -389,20 +496,20 @@
 
         <!-- Right Column: Text & CTA -->
         <div class="lg:col-span-6 lg:pl-6">
-          <div class="text-[12px] font-bold text-stone-800 tracking-normal mb-3">
+          <div class="motion-item motion-slide-left stagger-1 text-[12px] font-bold text-stone-800 tracking-normal mb-3">
             Personal Sessions
           </div>
 
-          <h2 class="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-stone-950 tracking-tight leading-[1.18] mb-5">
+          <h2 class="motion-item motion-slide-left stagger-2 text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-stone-950 tracking-tight leading-[1.18] mb-5">
             Transform Your Life &<br>
             Live Your Dream
           </h2>
 
-          <p class="text-stone-600 text-[13px] sm:text-[14px] leading-relaxed mb-8 max-w-md">
+          <p class="motion-item motion-slide-left stagger-3 text-stone-600 text-[13px] sm:text-[14px] leading-relaxed mb-8 max-w-md">
             Real transformation doesn't come from reading another self-help book. It happens in the confidential space between a seasoned mentor and your deepest truths. Together, we dismantle the subconscious barriers holding you back so you can lead and live with absolute presence.
           </p>
 
-          <a href="#philosophy" class="inline-block px-7 py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded-[3px] shadow-sm transition-all">
+          <a href="#philosophy" class="motion-item motion-slide-left stagger-4 inline-block px-7 py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded-[3px] shadow-sm transition-all transform hover:-translate-y-0.5">
             Read More
           </a>
         </div>
@@ -415,13 +522,13 @@
   <!-- ========================================================
        NEW STRATEGIC SECTION: MEET LISA — STORY & 3 PILLARS
        ======================================================== -->
-  <section id="philosophy" class="py-24 bg-white border-b border-stone-200/50">
+  <section id="philosophy" class="motion-section py-24 bg-white border-b border-stone-200/50">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         <!-- Left: Candid Photo of Lisa -->
         <div class="lg:col-span-5 relative">
-          <div class="warm-offset-backdrop">
+          <div class="motion-item motion-slide-right warm-offset-backdrop">
             <div class="relative z-10 overflow-hidden shadow-md aspect-[3/4] bg-stone-100">
               <img 
                 src="assets/images/founder-story.jpg" 
@@ -434,22 +541,22 @@
 
         <!-- Right: Story & Pillars -->
         <div class="lg:col-span-7">
-          <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
+          <div class="motion-item motion-slide-left stagger-1 text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
             The Philosophy
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight leading-tight mb-5">
+          <h2 class="motion-item motion-slide-left stagger-2 text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight leading-tight mb-5">
             "High achievement without inner peace is the ultimate form of burnout."
           </h2>
-          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+          <p class="motion-item motion-slide-left stagger-3 text-stone-600 text-sm leading-relaxed mb-4">
             For over a decade, I navigated the unrelenting pressures of executive corporate leadership. On paper, I had it all. Internally, I was running on adrenaline, self-doubt, and persistent exhaustion.
           </p>
-          <p class="text-stone-600 text-sm leading-relaxed mb-8">
+          <p class="motion-item motion-slide-left stagger-3 text-stone-600 text-sm leading-relaxed mb-8">
             My breakthrough came when I realized sustainable success isn't about pushing harder; it’s about aligning your nervous system, clarifying your non-negotiables, and designing a life of intentional momentum. Here is the framework we use:
           </p>
 
           <!-- 3 Pillars Grid -->
           <div class="space-y-4">
-            <div class="flex items-start gap-3.5 p-4 rounded bg-brand-bg-light border border-stone-200/70">
+            <div class="motion-item motion-slide-up stagger-1 framer-card-hover flex items-start gap-3.5 p-4 rounded bg-brand-bg-light border border-stone-200/70">
               <div class="w-8 h-8 rounded bg-brand-orange text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
                 01
               </div>
@@ -459,7 +566,7 @@
               </div>
             </div>
 
-            <div class="flex items-start gap-3.5 p-4 rounded bg-brand-bg-light border border-stone-200/70">
+            <div class="motion-item motion-slide-up stagger-2 framer-card-hover flex items-start gap-3.5 p-4 rounded bg-brand-bg-light border border-stone-200/70">
               <div class="w-8 h-8 rounded bg-brand-orange text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
                 02
               </div>
@@ -469,7 +576,7 @@
               </div>
             </div>
 
-            <div class="flex items-start gap-3.5 p-4 rounded bg-brand-bg-light border border-stone-200/70">
+            <div class="motion-item motion-slide-up stagger-3 framer-card-hover flex items-start gap-3.5 p-4 rounded bg-brand-bg-light border border-stone-200/70">
               <div class="w-8 h-8 rounded bg-brand-orange text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
                 03
               </div>
@@ -490,10 +597,10 @@
   <!-- ========================================================
        NEW STRATEGIC SECTION: WHO THIS IS FOR VS NOT FOR
        ======================================================== -->
-  <section class="py-20 bg-brand-bg-sand">
+  <section class="motion-section py-20 bg-brand-bg-sand">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
       
-      <div class="text-center max-w-xl mx-auto mb-14">
+      <div class="motion-item motion-slide-up text-center max-w-xl mx-auto mb-14">
         <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
           Self Selection
         </div>
@@ -508,7 +615,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- This Is For You If -->
-        <div class="bg-white p-7 sm:p-9 rounded shadow-sm border border-stone-200/60">
+        <div class="motion-item motion-slide-right stagger-1 framer-card-hover bg-white p-7 sm:p-9 rounded shadow-sm border border-stone-200/60">
           <div class="flex items-center gap-3 mb-6">
             <div class="w-8 h-8 rounded bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
               <i data-lucide="check" class="w-4 h-4 stroke-[3]"></i>
@@ -536,7 +643,7 @@
         </div>
 
         <!-- This Is Not For You If -->
-        <div class="bg-white p-7 sm:p-9 rounded shadow-sm border border-stone-200/60">
+        <div class="motion-item motion-slide-left stagger-2 framer-card-hover bg-white p-7 sm:p-9 rounded shadow-sm border border-stone-200/60">
           <div class="flex items-center gap-3 mb-6">
             <div class="w-8 h-8 rounded bg-rose-100 text-rose-700 flex items-center justify-center font-bold">
               <i data-lucide="x" class="w-4 h-4 stroke-[3]"></i>
@@ -571,10 +678,10 @@
   <!-- ========================================================
        NEW STRATEGIC SECTION: 3-STEP "HOW IT WORKS" ROADMAP
        ======================================================== -->
-  <section id="how-it-works" class="py-24 bg-white">
+  <section id="how-it-works" class="motion-section py-24 bg-white">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
       
-      <div class="text-center max-w-xl mx-auto mb-16">
+      <div class="motion-item motion-slide-up text-center max-w-xl mx-auto mb-16">
         <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
           The Journey
         </div>
@@ -589,7 +696,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
         
         <!-- Step 1 -->
-        <div class="bg-brand-bg-light p-7 sm:p-8 rounded border border-stone-200/70 relative flex flex-col">
+        <div class="motion-item motion-slide-up stagger-1 framer-card-hover bg-brand-bg-light p-7 sm:p-8 rounded border border-stone-200/70 relative flex flex-col">
           <div class="text-4xl font-extrabold text-brand-orange/30 mb-4">01</div>
           <h3 class="text-base font-bold text-stone-950 mb-2">Discovery & Life Audit</h3>
           <p class="text-xs sm:text-sm text-stone-500 leading-relaxed flex-1">
@@ -598,7 +705,7 @@
         </div>
 
         <!-- Step 2 -->
-        <div class="bg-brand-bg-light p-7 sm:p-8 rounded border border-stone-200/70 relative flex flex-col">
+        <div class="motion-item motion-slide-up stagger-2 framer-card-hover bg-brand-bg-light p-7 sm:p-8 rounded border border-stone-200/70 relative flex flex-col">
           <div class="text-4xl font-extrabold text-brand-orange/30 mb-4">02</div>
           <h3 class="text-base font-bold text-stone-950 mb-2">Custom 90-Day Blueprint</h3>
           <p class="text-xs sm:text-sm text-stone-500 leading-relaxed flex-1">
@@ -607,7 +714,7 @@
         </div>
 
         <!-- Step 3 -->
-        <div class="bg-brand-bg-light p-7 sm:p-8 rounded border border-stone-200/70 relative flex flex-col">
+        <div class="motion-item motion-slide-up stagger-3 framer-card-hover bg-brand-bg-light p-7 sm:p-8 rounded border border-stone-200/70 relative flex flex-col">
           <div class="text-4xl font-extrabold text-brand-orange/30 mb-4">03</div>
           <h3 class="text-base font-bold text-stone-950 mb-2">Bi-Weekly Deep Dives & Support</h3>
           <p class="text-xs sm:text-sm text-stone-500 leading-relaxed flex-1">
@@ -618,7 +725,7 @@
       </div>
 
       <div class="text-center mt-12 sm:mt-14">
-        <a href="#booking" class="inline-block px-10 py-4 sm:px-12 sm:py-4.5 bg-brand-orange hover:bg-brand-orange-hover text-white text-sm sm:text-base font-bold tracking-wide rounded-[4px] shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+        <a href="#booking" class="motion-item motion-slide-up stagger-4 inline-block px-10 py-4 sm:px-12 sm:py-4.5 bg-brand-orange hover:bg-brand-orange-hover text-white text-sm sm:text-base font-bold tracking-wide rounded-[4px] shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
           Schedule Your Step 1 Call
         </a>
       </div>
@@ -630,11 +737,11 @@
   <!-- ========================================================
        SECTION 3: OFFERINGS (ORIGINAL MOCKUP REPLICA)
        ======================================================== -->
-  <section id="offerings" class="py-24 bg-brand-bg-sand border-y border-stone-200/50 relative">
+  <section id="offerings" class="motion-section py-24 bg-brand-bg-sand border-y border-stone-200/50 relative">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
       
       <!-- Center Title -->
-      <div class="text-center max-w-xl mx-auto mb-16">
+      <div class="motion-item motion-slide-up text-center max-w-xl mx-auto mb-16">
         <div class="text-[12px] font-bold text-stone-800 tracking-normal mb-2">
           Tailored Offerings
         </div>
@@ -650,7 +757,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-9 lg:gap-8">
         
         <!-- Card 1: Coaching -->
-        <div class="flex flex-col items-start bg-white p-6 rounded shadow-sm border border-stone-200/50">
+        <div class="motion-item motion-slide-up stagger-1 framer-card-hover flex flex-col items-start bg-white p-6 rounded shadow-sm border border-stone-200/50">
           <div class="card-offset-backdrop w-full mb-6">
             <div class="relative z-10 w-full overflow-hidden shadow-sm aspect-[4/3]">
               <img 
@@ -672,7 +779,7 @@
         </div>
 
         <!-- Card 2: Workshops -->
-        <div class="flex flex-col items-start bg-white p-6 rounded shadow-sm border border-stone-200/50">
+        <div class="motion-item motion-slide-up stagger-2 framer-card-hover flex flex-col items-start bg-white p-6 rounded shadow-sm border border-stone-200/50">
           <div class="card-offset-backdrop w-full mb-6">
             <div class="relative z-10 w-full overflow-hidden shadow-sm aspect-[4/3]">
               <img 
@@ -694,7 +801,7 @@
         </div>
 
         <!-- Card 3: Video Courses -->
-        <div class="flex flex-col items-start bg-white p-6 rounded shadow-sm border border-stone-200/50">
+        <div class="motion-item motion-slide-up stagger-3 framer-card-hover flex flex-col items-start bg-white p-6 rounded shadow-sm border border-stone-200/50">
           <div class="card-offset-backdrop w-full mb-6">
             <div class="relative z-10 w-full overflow-hidden shadow-sm aspect-[4/3]">
               <img 
@@ -724,10 +831,10 @@
   <!-- ========================================================
        NEW STRATEGIC SECTION: DETAILED PRICING & PROGRAM TIERS
        ======================================================== -->
-  <section id="pricing" class="py-24 bg-white">
+  <section id="pricing" class="motion-section py-24 bg-white">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
       
-      <div class="text-center max-w-xl mx-auto mb-16">
+      <div class="motion-item motion-slide-up text-center max-w-xl mx-auto mb-16">
         <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
           Invest In Yourself
         </div>
@@ -742,7 +849,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
         
         <!-- Tier 1: Digital Vault -->
-        <div class="bg-brand-bg-light p-8 rounded border border-stone-200 flex flex-col justify-between">
+        <div class="motion-item motion-slide-up stagger-1 framer-card-hover bg-brand-bg-light p-8 rounded border border-stone-200 flex flex-col justify-between">
           <div>
             <div class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Self-Paced</div>
             <h3 class="text-xl font-bold text-stone-950 mb-2">The Mindset Vault</h3>
@@ -764,7 +871,7 @@
         </div>
 
         <!-- Tier 2: 1-on-1 Mentorship (Featured) -->
-        <div class="bg-white p-8 rounded border-2 border-brand-orange shadow-hover relative flex flex-col justify-between">
+        <div class="motion-item motion-slide-up stagger-2 framer-card-hover bg-white p-8 rounded border-2 border-brand-orange shadow-hover relative flex flex-col justify-between">
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-orange text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
             Most Popular
           </div>
@@ -790,7 +897,7 @@
         </div>
 
         <!-- Tier 3: Executive Immersion -->
-        <div class="bg-brand-bg-light p-8 rounded border border-stone-200 flex flex-col justify-between">
+        <div class="motion-item motion-slide-up stagger-3 framer-card-hover bg-brand-bg-light p-8 rounded border border-stone-200 flex flex-col justify-between">
           <div>
             <div class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">6 Months + Retreat</div>
             <h3 class="text-xl font-bold text-stone-950 mb-2">Executive VIP Immersion</h3>
@@ -820,11 +927,11 @@
   <!-- ========================================================
        REAL CLIENT TESTIMONIALS & CASE STUDIES (AUTHENTIC SOCIAL PROOF)
        ======================================================== -->
-  <section id="testimonials" class="py-24 bg-brand-bg-sand border-t border-stone-200/50">
+  <section id="testimonials" class="motion-section py-24 bg-brand-bg-sand border-t border-stone-200/50">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
       
       <!-- Section Heading -->
-      <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="motion-item motion-slide-up text-center max-w-2xl mx-auto mb-16">
         <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
           Verified Client Outcomes
         </div>
@@ -849,7 +956,7 @@
       </div>
 
       <!-- Featured Spotlight Testimonial -->
-      <div class="bg-white rounded-lg p-8 sm:p-10 shadow-md border border-stone-200/80 mb-12 relative overflow-hidden">
+      <div class="motion-item motion-scale-up stagger-1 framer-card-hover bg-white rounded-lg p-8 sm:p-10 shadow-md border border-stone-200/80 mb-12 relative overflow-hidden">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div class="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
             <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden shadow-md mb-4 border-2 border-brand-orange/40">
@@ -883,7 +990,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         
         <!-- Real Testimonial 1: Taylor Matthews -->
-        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+        <div class="motion-item motion-slide-up stagger-1 framer-card-hover bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3.5 mb-4">
               <img src="assets/images/portrait-taylor.jpg" alt="Taylor Matthews" class="w-12 h-12 rounded-full object-cover shadow-sm">
@@ -910,7 +1017,7 @@
         </div>
 
         <!-- Real Testimonial 2: Corina Davis -->
-        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+        <div class="motion-item motion-slide-up stagger-2 framer-card-hover bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3.5 mb-4">
               <img src="assets/images/portrait-corina.jpg" alt="Corina Davis" class="w-12 h-12 rounded-full object-cover shadow-sm">
@@ -937,7 +1044,7 @@
         </div>
 
         <!-- Real Testimonial 3: Mark Stolesen -->
-        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+        <div class="motion-item motion-slide-up stagger-3 framer-card-hover bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3.5 mb-4">
               <img src="assets/images/portrait-mark.jpg" alt="Mark Stolesen" class="w-12 h-12 rounded-full object-cover shadow-sm">
@@ -964,7 +1071,7 @@
         </div>
 
         <!-- Real Testimonial 4: Brian Chen -->
-        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+        <div class="motion-item motion-slide-up stagger-1 framer-card-hover bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3.5 mb-4">
               <img src="assets/images/portrait-brian.jpg" alt="Brian Chen" class="w-12 h-12 rounded-full object-cover shadow-sm">
@@ -991,7 +1098,7 @@
         </div>
 
         <!-- Real Testimonial 5: Christian G. -->
-        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+        <div class="motion-item motion-slide-up stagger-2 framer-card-hover bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3.5 mb-4">
               <img src="assets/images/portrait-christian.jpg" alt="Christian G." class="w-12 h-12 rounded-full object-cover shadow-sm">
@@ -1018,7 +1125,7 @@
         </div>
 
         <!-- Real Testimonial 6: Selena S. -->
-        <div class="bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
+        <div class="motion-item motion-slide-up stagger-3 framer-card-hover bg-white p-7 rounded shadow-sm border border-stone-200/70 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3.5 mb-4">
               <img src="assets/images/portrait-selena.jpg" alt="Selena S." class="w-12 h-12 rounded-full object-cover shadow-sm">
@@ -1047,8 +1154,8 @@
       </div>
 
       <!-- Bottom CTA Banner in Testimonials -->
-      <div class="mt-14 text-center">
-        <a href="#booking" class="inline-block px-8 py-3.5 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded-[3px] shadow-sm transition-all">
+      <div class="motion-item motion-slide-up stagger-2 mt-14 text-center">
+        <a href="#booking" class="inline-block px-8 py-3.5 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded-[3px] shadow-sm transition-all transform hover:-translate-y-0.5">
           Experience Your Own Breakthrough &mdash; Book Free Call
         </a>
       </div>
@@ -1060,27 +1167,27 @@
   <!-- ========================================================
        SECTION 4: COMING SOON / WORKSHOPS (ORIGINAL MOCKUP REPLICA)
        ======================================================== -->
-  <section id="workshops" class="py-24 bg-brand-bg-light border-t border-stone-200/50">
+  <section id="workshops" class="motion-section py-24 bg-brand-bg-light border-t border-stone-200/50">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
         
         <!-- Left Column: Feature Checkmarks -->
         <div class="lg:col-span-6 pr-0 lg:pr-4">
-          <div class="text-[12px] font-bold text-stone-800 tracking-normal mb-3">
+          <div class="motion-item motion-slide-right stagger-1 text-[12px] font-bold text-stone-800 tracking-normal mb-3">
             Upcoming Immersions
           </div>
 
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight leading-[1.18] mb-5">
+          <h2 class="motion-item motion-slide-right stagger-2 text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight leading-[1.18] mb-5">
             Personal Sessions<br>
             And Cohort Workshops
           </h2>
 
-          <p class="text-stone-600 text-[13px] sm:text-[14px] leading-relaxed mb-8 max-w-md">
+          <p class="motion-item motion-slide-right stagger-3 text-stone-600 text-[13px] sm:text-[14px] leading-relaxed mb-8 max-w-md">
             Seasonal intimate cohorts and private in-person weekend retreats. Applications are strictly capped at 10 participants per cohort to ensure transformative depth.
           </p>
 
           <!-- Checkmark Items -->
-          <div class="space-y-6">
+          <div class="motion-item motion-slide-right stagger-4 space-y-6">
             <div class="flex items-start gap-3.5">
               <div class="flex-shrink-0 w-5 h-5 rounded-[3px] bg-brand-orange text-white flex items-center justify-center mt-0.5">
                 <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
@@ -1113,7 +1220,7 @@
 
         <!-- Right Column: Table Image with Offset White Frame & Overlapping Quote Card -->
         <div class="lg:col-span-6 relative pb-16 lg:pb-12">
-          <div class="table-offset-backdrop">
+          <div class="motion-item motion-slide-left stagger-2 table-offset-backdrop">
             <div class="relative z-10 overflow-hidden shadow-md aspect-[4/3]">
               <img 
                 src="assets/images/interior-table.jpg" 
@@ -1124,7 +1231,7 @@
           </div>
 
           <!-- Overlapping Testimonial Quote Card (Real Executive Client Quote) -->
-          <div class="absolute -bottom-6 sm:-bottom-8 right-2 sm:right-6 left-6 sm:left-auto bg-white p-6 sm:p-7 shadow-stats border border-stone-100 max-w-md z-20">
+          <div class="motion-item motion-slide-up stagger-3 framer-card-hover absolute -bottom-6 sm:-bottom-8 right-2 sm:right-6 left-6 sm:left-auto bg-white p-6 sm:p-7 shadow-stats border border-stone-100 max-w-md z-20 rounded-sm">
             <p class="text-stone-800 text-xs sm:text-[13px] leading-relaxed font-medium italic mb-2">
               &ldquo;Working with Lisa completely recalibrated my relationship with achievement. I now lead my 40-person company with calm certainty and no longer sacrifice my health or family evenings.&rdquo;
             </p>
@@ -1140,27 +1247,27 @@
   <!-- ========================================================
        NEW STRATEGIC SECTION: FREE LEAD MAGNET (EMAIL CAPTURE)
        ======================================================== -->
-  <section class="py-20 bg-brand-bg-sand border-y border-stone-200/50">
+  <section class="motion-section py-20 bg-brand-bg-sand border-y border-stone-200/50">
     <div class="max-w-6xl mx-auto px-6 sm:px-8">
-      <div class="bg-white p-8 sm:p-12 rounded-lg border border-stone-200/70 shadow-sm">
+      <div class="motion-item motion-scale-up framer-card-hover bg-white p-8 sm:p-12 rounded-lg border border-stone-200/70 shadow-sm">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           <div class="lg:col-span-5">
-            <div class="overflow-hidden rounded shadow-md aspect-[4/3] bg-stone-100">
+            <div class="motion-item motion-slide-right stagger-1 overflow-hidden rounded shadow-md aspect-[4/3] bg-stone-100">
               <img src="assets/images/lead-magnet.jpg" alt="7-Day Reset Workbook" class="w-full h-full object-cover">
             </div>
           </div>
 
           <div class="lg:col-span-7">
-            <div class="text-[11px] font-bold uppercase tracking-wider text-brand-orange mb-2">Free Instant Download</div>
-            <h3 class="text-2xl sm:text-3xl font-extrabold text-stone-950 tracking-tight mb-3">
+            <div class="motion-item motion-slide-left stagger-1 text-[11px] font-bold uppercase tracking-wider text-brand-orange mb-2">Free Instant Download</div>
+            <h3 class="motion-item motion-slide-left stagger-2 text-2xl sm:text-3xl font-extrabold text-stone-950 tracking-tight mb-3">
               The 7-Day Mindset Reset & Life Clarity Workbook
             </h3>
-            <p class="text-stone-500 text-xs sm:text-sm leading-relaxed mb-6">
+            <p class="motion-item motion-slide-left stagger-2 text-stone-500 text-xs sm:text-sm leading-relaxed mb-6">
               Not ready for 1-on-1 coaching yet? Download our signature self-guided workbook and 10-minute morning audio meditation used by 4,500+ professionals to reclaim focus and calm.
             </p>
 
-            <form onsubmit="handleLeadMagnetSubmit(event)" class="space-y-3">
+            <form onsubmit="handleLeadMagnetSubmit(event)" class="motion-item motion-slide-up stagger-3 space-y-3">
               <div class="flex flex-col sm:flex-row gap-3">
                 <input 
                   type="email" 
@@ -1191,11 +1298,11 @@
   <!-- ========================================================
        FREQUENTLY ASKED QUESTIONS (LUXURY EDITORIAL ACCORDION)
        ======================================================== -->
-  <section id="faq" class="py-24 bg-brand-bg-light border-t border-stone-200/60">
+  <section id="faq" class="motion-section py-24 bg-brand-bg-light border-t border-stone-200/60">
     <div class="max-w-4xl mx-auto px-6 sm:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-xl mx-auto mb-16">
+      <div class="motion-item motion-slide-up text-center max-w-xl mx-auto mb-16">
         <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
           Got Questions?
         </div>
@@ -1208,7 +1315,7 @@
       </div>
 
       <!-- Luxury Accordion Container (Clean Border-Divided Layout) -->
-      <div class="bg-white rounded-xl shadow-sm border border-stone-200/80 divide-y divide-stone-200/80 overflow-hidden" id="faq-accordion">
+      <div class="motion-item motion-slide-up stagger-2 bg-white rounded-xl shadow-sm border border-stone-200/80 divide-y divide-stone-200/80 overflow-hidden" id="faq-accordion">
         
         <!-- FAQ 1 (Open by Default) -->
         <div class="faq-item transition-colors duration-150">
@@ -1303,12 +1410,12 @@
       </div>
 
       <!-- Helpful Support Card below FAQ -->
-      <div class="mt-12 p-6 sm:p-8 bg-white rounded-xl border border-stone-200/80 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+      <div class="motion-item motion-slide-up stagger-3 framer-card-hover mt-12 p-6 sm:p-8 bg-white rounded-xl border border-stone-200/80 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
         <div>
           <h4 class="text-base font-bold text-stone-950 mb-1">Have a question not answered here?</h4>
           <p class="text-xs text-stone-500">Schedule a quick 15-minute alignment call with Lisa or send a note to our advisory team.</p>
         </div>
-        <a href="#booking" class="px-6 py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded-[3px] shadow-sm transition-all whitespace-nowrap flex-shrink-0">
+        <a href="#booking" class="px-6 py-3 bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold rounded-[3px] shadow-sm transition-all whitespace-nowrap flex-shrink-0 transform hover:-translate-y-0.5">
           Ask a Question
         </a>
       </div>
@@ -1320,10 +1427,10 @@
   <!-- ========================================================
        NEW STRATEGIC SECTION: INTERACTIVE CALENDAR BOOKING WIDGET
        ======================================================== -->
-  <section id="booking" class="py-24 bg-brand-bg-sand border-t border-stone-200/50">
+  <section id="booking" class="motion-section py-24 bg-brand-bg-sand border-t border-stone-200/50">
     <div class="max-w-4xl mx-auto px-6 sm:px-8">
       
-      <div class="text-center max-w-xl mx-auto mb-14">
+      <div class="motion-item motion-slide-up text-center max-w-xl mx-auto mb-14">
         <div class="text-[12px] font-bold text-stone-800 uppercase tracking-wider mb-2">
           Start Your Journey
         </div>
@@ -1335,7 +1442,7 @@
         </p>
       </div>
 
-      <div class="bg-white rounded-lg p-6 sm:p-10 shadow-sm border border-stone-200/70">
+      <div class="motion-item motion-scale-up stagger-1 framer-card-hover bg-white rounded-lg p-6 sm:p-10 shadow-sm border border-stone-200/70">
         
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
           
@@ -1864,6 +1971,103 @@
     window.addEventListener('scroll', updateActiveNav, { passive: true });
     window.addEventListener('DOMContentLoaded', updateActiveNav);
     setTimeout(updateActiveNav, 150);
+
+    // ========================================================
+    // FRAMER MOTION & ENTRANCE ANIMATION CONTROLLER
+    // ========================================================
+    function updateScrollProgress() {
+      const progressBar = document.getElementById('scroll-progress-bar');
+      if (!progressBar) return;
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      progressBar.style.width = `${scrolled}%`;
+    }
+
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+    // Counter animation with spring/cubic easing
+    function animateCounters(container) {
+      const counters = container.querySelectorAll('.stat-counter:not([data-counted])');
+      counters.forEach(counter => {
+        counter.setAttribute('data-counted', 'true');
+        const target = parseInt(counter.getAttribute('data-target'), 10);
+        const suffix = counter.getAttribute('data-suffix') || '';
+        if (isNaN(target)) return;
+        const duration = 1500;
+        const startTime = performance.now();
+
+        function step(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease-out cubic deceleration
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          const currentVal = Math.floor(easeOut * target);
+          counter.innerText = `${currentVal}${suffix}`;
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            counter.innerText = `${target}${suffix}`;
+          }
+        }
+        requestAnimationFrame(step);
+      });
+    }
+
+    // Motion IntersectionObserver
+    function initFramerMotion() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        document.querySelectorAll('.motion-item, .motion-section').forEach(el => {
+          el.classList.add('motion-visible');
+        });
+        return;
+      }
+
+      // Observer options: triggers slightly before fully entering view
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.08
+      };
+
+      const motionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('motion-visible');
+            
+            // Trigger counter animations if inside
+            animateCounters(entry.target);
+
+            // Once visible, unobserve for performance (Framer Motion once: true)
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections and motion items
+      document.querySelectorAll('.motion-section, .motion-item').forEach(el => {
+        motionObserver.observe(el);
+      });
+
+      // Immediate cascade for Hero on load
+      const heroSection = document.getElementById('hero');
+      if (heroSection) {
+        setTimeout(() => {
+          heroSection.classList.add('motion-visible');
+          heroSection.querySelectorAll('.motion-item').forEach(item => {
+            item.classList.add('motion-visible');
+          });
+        }, 60);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFramerMotion);
+    } else {
+      initFramerMotion();
+    }
   </script>
 
 </body>
